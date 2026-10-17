@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bespoke Brass</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#030303}
+a{color:#F7F0E6}a:hover{color:#FFC263}
+@media (max-width: 860px){.hide-sm{display:none !important}.stack-sm{flex-direction:column !important}}
+.btn-gold{background:linear-gradient(90deg,#FEEECB,#FFC263);color:#141414;border:0;transition:box-shadow .1s ease}
+.btn-gold:hover{color:#141414;box-shadow:0 0 0 2px #FFC263}
+.btn-line{border:1px solid #F7F0E6;color:#F7F0E6;background:transparent;transition:box-shadow .1s ease}
+.btn-line:hover{color:#F7F0E6;box-shadow:0 0 0 1px #F7F0E6}
+.nav-link{text-decoration:none}
+.icon-btn svg{transition:transform .2s ease}
+.icon-btn:hover svg{transform:scale(1.07)}
+.slide{flex:0 0 100%;height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:#030303}
+.slide-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.slide-imgs img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width: 760px){.slide{grid-template-columns:1fr;grid-template-rows:300px auto;height:640px}}
+@keyframes marquee-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
+.marquee{display:flex;width:max-content;animation:marquee-scroll 25s linear infinite}
+.marquee-wrap{overflow:hidden}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#3A3A3A transparent}
+.rail>*{scroll-snap-align:start}
+.card{background:#101010;border:1px solid #1E1E1E}
+.card-img{overflow:hidden}
+.card-img .ph{transition:transform .5s ease}
+.card:hover .card-img .ph{transform:scale(1.03)}
+.outfit img{transition:transform .5s ease}
+.outfit:hover img{transform:scale(1.03)}
+.insta img{transition:transform .5s ease}
+.insta:hover img{transform:scale(1.03)}
+@keyframes slideIn{from{transform:translateY(2rem);opacity:.01}to{transform:translateY(0);opacity:1}}
+.rv{opacity:.01;transform:translateY(2rem)}
+.rv.in{animation:slideIn .6s cubic-bezier(0,0,.3,1) forwards;animation-delay:calc(var(--o, 0) * 75ms)}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation:none !important;transition:none !important}.rv{opacity:1;transform:none}}
+</style>
+
+</head>
+<body>
+<div id="app"></div>
+<script type="text/x-template" id="tpl">
+<div style="font-family: 'Lato', sans-serif; color: #F7F0E6; background: #030303; min-height: 100vh; position: relative">
+
+  <div style="background: linear-gradient(90deg, #FEEECB, #FFC263); color: #141414; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; padding: 10px 16px">Free shipping across India · Delivered in 3 days · Order on WhatsApp: +91 77386 78526</div>
+
+  <header style="background: #030303; border-bottom: 1px solid #1E1E1E; position: sticky; top: 0; z-index: 20">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 16px 24px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px">
+      <nav aria-label="Main" class="hide-sm" style="display: flex; gap: 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; flex-wrap: wrap">
+        <a href="#top" class="nav-link">Home</a>
+        <a href="#range" class="nav-link">Shop all</a>
+        <a href="#categories" class="nav-link">Categories</a>
+        <a href="#outfit" class="nav-link">Style guide</a>
+        <a href="#story" class="nav-link">Our story</a>
+      </nav>
+      <a href="#top" style="grid-column: 2; text-decoration: none; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px">
+        <span :style="`font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.22em; color: ${gold}`">BESPOKE</span>
+        <span style="font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.6em; color: #F7F0E6; padding-left: 0.6em">BRASS</span>
+      </a>
+      <div style="grid-column: 3; display: flex; gap: 4px; justify-content: flex-end">
+        <button aria-label="Search" class="icon-btn" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
+        <button aria-label="Wishlist" class="icon-btn hide-sm" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></button>
+        <button aria-label="Account" class="icon-btn hide-sm" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
+        <button :aria-label="`Cart, ${cartCount} items`" class="icon-btn" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span :style="`position: absolute; top: 4px; right: 2px; background: ${gold}; color: #141414; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center`">{{cartCount}}</span></button>
+      </div>
+    </div>
+  </header>
+
+  <section id="top" aria-roledescription="carousel" aria-label="Featured collections" style="position: relative; overflow: hidden; border-bottom: 1px solid #1E1E1E">
+    <div :style="heroTrack">
+      <template v-for="(s, idx) in heroSlides">
+        <div class="slide" :aria-hidden="s.hidden">
+          <div style="display: flex; flex-direction: column; justify-content: center; padding: 48px clamp(24px, 6vw, 96px); gap: 18px; min-width: 0">
+            <p :style="`margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">{{s.kicker}}</p>
+            <h2 style="margin: 0; font-family: 'Raleway', sans-serif; font-weight: 800; font-size: clamp(34px, 4.4vw, 64px); line-height: 1.02; letter-spacing: 0.02em; text-transform: uppercase; color: #FFFFFF">{{s.title}}</h2>
+            <p style="margin: 0; color: #D9D2C6; font-size: 17px; line-height: 1.6; max-width: 420px">{{s.text}}</p>
+            <a href="#range" @click="s.pick" :tabindex="s.tab" class="btn-gold" style="align-self: flex-start; margin-top: 8px; text-decoration: none; padding: 16px 34px; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">{{s.cta}}</a>
+          </div>
+          <div class="slide-imgs"><img :src="s.a" alt="" loading="eager"><img :src="s.b" alt="" loading="eager"></div>
+        </div>
+      </template>
+    </div>
+    <div style="position: absolute; left: 0; right: 0; bottom: 20px; display: flex; justify-content: center; gap: 4px">
+      <template v-for="(d, idx) in heroDots">
+        <button @click="d.pick" :aria-label="`Show slide ${d.n}`" :aria-current="d.current" style="width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center"><span :style="d.style"></span></button>
+      </template>
+    </div>
+  </section>
+
+  <section style="max-width: 1320px; margin: 0 auto; padding: 88px 24px 40px">
+    <div data-reveal="" style="text-align: center; margin-bottom: 40px">
+      <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">The Signature Edit</h2>
+      <p style="margin: 0; color: #B9B2A6; font-size: 16px">Statement pieces, picked to be noticed.</p>
+    </div>
+    <div class="rail" data-reveal="">
+      <template v-for="(p, idx) in featured">
+        <article class="card" style="display: flex; flex-direction: column">
+          <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
+            <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(3,3,3,0.8); color: #FFC263; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 10px">{{p.cat}}</span>
+          </a>
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+            <a href="product.html" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
+            <span style="color: #FFC263; font-weight: 700">{{p.price}}</span>
+            <button @click="p.add" class="btn-gold" style="margin-top: auto; min-height: 46px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Add to cart</button>
+          </div>
+        </article>
+      </template>
+    </div>
+  </section>
+
+  <section id="categories" style="padding: 64px 0 72px; overflow: hidden">
+    <div data-reveal="" style="text-align: center; margin-bottom: 24px; padding: 0 24px">
+      <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase">Shop by categories</h2>
+      <p style="margin: 0; color: #B9B2A6; font-size: 16px">Every finishing touch, in one place.</p>
+    </div>
+    <div aria-roledescription="carousel" aria-label="Categories" style="position: relative; height: 500px">
+      <template v-for="(t, idx) in tiles">
+        <a href="#range" @click="t.click" :aria-label="`${t.label}, ${t.count} designs`" :style="t.style">
+          <img :src="t.src" alt="" loading="lazy" :style="t.imgStyle">
+          <span style="position: absolute; bottom: 20px; left: 50%; transform: translate(-50%); width: 90%; box-sizing: border-box; padding: 12px 20px; background: rgba(3,3,3,0.72); color: #FFFFFF; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; text-align: center">{{t.label}} <span style="color: #FFC263; font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 14px">· {{t.count}} designs</span></span>
+        </a>
+      </template>
+    </div>
+  </section>
+
+  <section id="outfit" style="background: #0B0B0B; border-top: 1px solid #1E1E1E; border-bottom: 1px solid #1E1E1E">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 88px 24px">
+      <div data-reveal="" style="text-align: center; margin-bottom: 40px">
+        <p :style="`margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">The Bespoke Brass style guide</p>
+        <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Choose your outfit</h2>
+        <p style="margin: 0; color: #B9B2A6; font-size: 16px">Find the piece that works with what you are wearing.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
+        <template v-for="(o, idx) in outfits">
+          <a href="#range" @click="o.pick" class="outfit" data-reveal="" :style="`--o: ${idx}; position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; border: 1px solid #1E1E1E`">
+            <img :src="o.src" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+            <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,3,3,0.95) 0%, rgba(3,3,3,0.3) 50%, rgba(3,3,3,0) 100%)"></span>
+            <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
+              <span style="font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; color: #FFFFFF">{{o.title}}</span>
+              <span style="color: #E8E1D5; font-size: 15px; line-height: 1.55">{{o.text}}</span>
+              <span style="color: #FFC263; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">Shop {{o.cat}} →</span>
+            </span>
+          </a>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee-wrap" style="border-bottom: 1px solid #1E1E1E; padding: 26px 0">
+    <div class="marquee" style="gap: 40px; align-items: center; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding-right: 40px">
+      <template v-for="(t, idx) in trust">
+        <span style="display: flex; align-items: center; gap: 12px; white-space: nowrap"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path :d="t.icon"></path></svg>{{t.label}}</span>
+      </template>
+    </div>
+  </div>
+
+  <section id="range" style="max-width: 1320px; margin: 0 auto; padding: 88px 24px 40px">
+    <div data-reveal="" style="text-align: center; margin-bottom: 32px">
+      <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Shop by range</h2>
+      <p style="margin: 0; color: #B9B2A6; font-size: 16px">Every design ships free across India.</p>
+    </div>
+    <div role="group" aria-label="Filter by category" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px">
+      <template v-for="(c, idx) in cats">
+        <button @click="c.pick" :aria-pressed="c.selected" :style="c.style">{{c.label}}</button>
+      </template>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px 20px">
+      <template v-for="(p, idx) in products">
+        <article class="card" data-reveal="" :style="`--o: ${p.order}; display: flex; flex-direction: column`">
+          <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
+            <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
+          </a>
+          <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1">
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B9B2A6">{{p.cat}}</span>
+            <a href="product.html" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
+            <span style="color: #FFC263; font-weight: 700">{{p.price}}</span>
+            <p style="margin: 0 0 8px; color: #B9B2A6; font-size: 14px; line-height: 1.5">{{p.blurb}}</p>
+            <button @click="p.add" class="btn-gold" style="margin-top: auto; min-height: 46px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Add to cart</button>
+          </div>
+        </article>
+      </template>
+    </div>
+    <template v-if="hasMore">
+      <div style="display: flex; justify-content: center; margin-top: 48px">
+        <button @click="showAll" class="btn-line" style="min-height: 52px; padding: 0 40px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">View all {{total}} products</button>
+      </div>
+    </template>
+  </section>
+
+  <section id="story" style="max-width: 1320px; margin: 0 auto; padding: 80px 24px">
+    <div class="stack-sm" style="display: flex; gap: 64px; align-items: center">
+      <img data-reveal="" src="img/p09.jpg" alt="Two elephant brooches in a gift box" loading="lazy" style="flex: 1 1 0; min-width: 0; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid #1E1E1E">
+      <div data-reveal="" style="--o: 1; flex: 1 1 0; min-width: 0">
+        <p :style="`margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">Our story</p>
+        <h2 style="margin: 0 0 20px; font-family: 'Raleway', sans-serif; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">Small details. Big difference.</h2>
+        <p style="margin: 0 0 32px; color: #D9D2C6; font-size: 17px; line-height: 1.75">We started in Mumbai with a simple idea: the right finishing touch changes the whole outfit. A brooch on a sherwani, a matching bow tie at a reception, the buttons on a festive kurta. We pick every design for its detail and finish, and we are always a WhatsApp message away if you need help choosing.</p>
+        <a href="#range" class="btn-line" style="display: inline-block; text-decoration: none; padding: 15px 34px; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
+      </div>
+    </div>
+  </section>
+
+  <section style="border-top: 1px solid #1E1E1E">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 80px 24px">
+      <div data-reveal="" style="text-align: center; margin-bottom: 32px">
+        <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Follow us on Instagram</h2>
+        <a href="#" style="color: #FFC263; font-weight: 700; letter-spacing: 0.06em">Instagram coming soon</a>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px">
+        <template v-for="(i, idx) in insta">
+          <a href="#" class="insta" data-reveal="" aria-label="Open Instagram" :style="`--o: ${idx}; display: block; aspect-ratio: 1 / 1; overflow: hidden`"><img :src="i.src" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+        </template>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background: #F7F0E6; color: #141414">
+    <div style="max-width: 1320px; margin: 0 auto; padding: 72px 24px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px">
+      <div style="display: flex; flex-direction: column; gap: 14px">
+        <span style="font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.22em">BESPOKE BRASS</span>
+        <p style="margin: 0; line-height: 1.65; color: #3D3830">Brooches, bow tie sets and buttons that finish the look.</p>
+        <form style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
+          <label for="nl-email" style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Subscribe to our newsletter</label>
+          <div style="display: flex; flex-wrap: wrap">
+            <input id="nl-email" type="email" placeholder="Your email" style="flex: 1 1 160px; min-height: 46px; padding: 0 14px; border: 1px solid #141414; background: #FFFFFF; font-family: inherit; font-size: 15px">
+            <button type="button" style="min-height: 48px; padding: 0 20px; border: 0; background: #141414; color: #F7F0E6; font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Subscribe</button>
+          </div>
+        </form>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Shop</h3>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Brooches</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Bow tie sets</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Buttons</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Lapel pins</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Collar bars</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Help</h3>
+        <span style="color: #3D3830">Free shipping across India</span>
+        <span style="color: #3D3830">Delivered in 3 days</span>
+        <a href="#" style="color: #3D3830; text-decoration: none">Terms &amp; privacy</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px">
+        <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Contact</h3>
+        <a href="https://wa.me/917738678526" target="_blank" rel="noopener" style="color: #3D3830; text-decoration: none">+91 77386 78526</a>
+        <a href="mailto:mitaansh.choudhari.bba2026@atlasskilltech.university" style="color: #3D3830; overflow-wrap: anywhere">mitaansh.choudhari.bba2026@atlasskilltech.university</a>
+        <span style="color: #3D3830">Mumbai, Maharashtra</span>
+        <a href="#" style="color: #3D3830; text-decoration: none">Instagram</a>
+      </div>
+    </div>
+    <div style="max-width: 1320px; margin: 0 auto; padding: 20px 24px 32px; border-top: 1px solid #D9CFBF; font-size: 13px; color: #3D3830">© 2026 Bespoke Brass. All rights reserved.</div>
+  </footer>
+
+  <a href="https://wa.me/917738678526" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" style="position: fixed; right: 24px; bottom: 24px; width: 56px; height: 56px; border-radius: 28px; background: #1E7A46; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 20px rgba(0,0,0,0.4); z-index: 30"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8"><path d="M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5A8 8 0 0 1 4 12z"></path><path d="M9 9.5c.5 2 2 3.5 4.5 4.5"></path></svg></a>
+</div>
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
+<script>
+const IMG = {"dea5cea75b90d640ef79684a31214f62": "img/p00.jpg", "b69d90fea44e726c74e952e57e3d03c3": "img/p01.jpg", "75b9a6428993c35ea00f9b843624f750": "img/p02.jpg", "6ad9c5f614285693a074e839e5e630d1": "img/p03.jpg", "af158bfbf67945b1f3de7d1e64b57548": "img/p04.jpg", "4ba5eb4bfd7d34fc68a7cdf5bbb61ad2": "img/p05.jpg", "7a01bcbfe2020658253c9786939a654b": "img/p06.jpg", "7ee9b25dda09e5d1ce3458bfca7fa067": "img/p07.jpg", "78fd23febc4f236d4a4fde9758ff1584": "img/p08.jpg", "17f814902e2da07bfa45d60c242f23a5": "img/p09.jpg", "f04b1103ba6e9a10d5fc698e55d7e44d": "img/p10.jpg", "76b4de36505c675383be7a9ed6702524": "img/p11.jpg", "52fcdda059e900f48a7bdc1d6749cf5b": "img/p12.jpg", "537f6e7451852f9cb3c421d516ae6c98": "img/p13.jpg", "da8a9686165aa6e2b6d46b1d9fb46719": "img/p14.jpg", "f725d31d346ad3f2937e15e0e5c8508b": "img/p15.jpg", "3fc23269f033a643a953ab8f86f01c0a": "img/p16.jpg", "2aa58698a8e2c1f18665588c04f6a21e": "img/p17.jpg", "a5313033dd41d49545c9a3f708d1f84e": "img/p18.jpg", "1ae5c8f073ff759cac8ca9eac0841fdd": "img/p19.jpg", "4a41cdf311bd9bcc5b499c4784c3e322": "img/p20.jpg", "bf3493c2c3f383c374243bac5ba845cb": "img/p21.jpg", "319d9046a86fb2820e6860c19b8c63b6": "img/p22.jpg", "93c628d35a51ff2ff55b0bb7987d9490": "img/p23.jpg", "e016a0c2e5fb41ad306b24a0a9ee4679": "img/p24.jpg", "8f15e2051cc0b11da11fa8f49c7f86ed": "img/p25.jpg", "31f23b24abebb328cbe32acd6711d640": "img/p26.jpg", "0d5689f972154845923d797028517c7e": "img/p27.jpg", "3fabc92d346807a602d7adaebd0e0fb0": "img/p29.jpg", "5fa0e84909807091fd0d318cab43324a": "img/p30.jpg", "67d9be052ba2631b0afb108fbc7a11ac": "img/p31.jpg", "ec82d340bac32e60e05c9cdbc2dbad80": "img/p33.jpg", "84efcbd2f1570e2ecea2b0d08da5963d": "img/p34.jpg", "affeed4508f38a83507b48237c26d5b9": "img/p35.jpg", "74b0c6491a405d98cb770fd9ebabb268": "img/p36.jpg"};
+let vals;
+class DCLogic {
+  constructor(props) { this.props = props; this.state = {}; }
+  setState(p) { Object.assign(this.state, p); Object.assign(vals, this.renderVals()); }
+}
+
+const B = (id) => IMG[id];
+const HERO = [
+  { kicker: 'Brooches · Bow tie sets · Buttons', title: 'The details that finish the look', text: 'Finishing touches for sherwanis, suits and kurtas, shipped free across India.', cta: 'Shop now', cat: 'All', a: '75b9a6428993c35ea00f9b843624f750', b: 'ec82d340bac32e60e05c9cdbc2dbad80' },
+  { kicker: 'Heritage brooches', title: 'Statement brooches', text: 'Antique-finish crests, elephants and deities for the chest of a sherwani or bandhgala.', cta: 'Shop brooches', cat: 'Brooches', a: '7a01bcbfe2020658253c9786939a654b', b: 'b69d90fea44e726c74e952e57e3d03c3' },
+  { kicker: 'Gift-boxed sets', title: 'Bow tie sets', text: 'Bow tie, pocket square, cufflinks and lapel flower, matched in one box.', cta: 'Shop bow tie sets', cat: 'Bow tie sets', a: 'f725d31d346ad3f2937e15e0e5c8508b', b: 'da8a9686165aa6e2b6d46b1d9fb46719' },
+  { kicker: 'Buttons & closures', title: 'Finish your kurta', text: 'Crystal studs, zari frog closures and leather hooks.', cta: 'Shop buttons', cat: 'Buttons', a: '67d9be052ba2631b0afb108fbc7a11ac', b: '93c628d35a51ff2ff55b0bb7987d9490' },
+  { kicker: 'Lapel pins & collar bars', title: 'The smallest details', text: 'Pins and collar bars that make a plain suit your own.', cta: 'Shop lapel pins', cat: 'Lapel pins', a: '5fa0e84909807091fd0d318cab43324a', b: '74b0c6491a405d98cb770fd9ebabb268' }
+];
+const CATS = ['Brooches', 'Bow tie sets', 'Buttons', 'Lapel pins', 'Collar bars'];
+const TILE_IMG = { 'Brooches': 'b69d90fea44e726c74e952e57e3d03c3', 'Bow tie sets': '537f6e7451852f9cb3c421d516ae6c98', 'Buttons': 'ec82d340bac32e60e05c9cdbc2dbad80', 'Lapel pins': '5fa0e84909807091fd0d318cab43324a', 'Collar bars': '74b0c6491a405d98cb770fd9ebabb268' };
+// New products go here: [category, name, uploaded photo id]. The first 8 also fill the Signature Edit.
+const CATALOG = [
+  ['Brooches', 'Ganesha brooch', 'b69d90fea44e726c74e952e57e3d03c3'],
+  ['Brooches', 'Royal crest brooch', '7a01bcbfe2020658253c9786939a654b'],
+  ['Brooches', 'Elephant brooch', 'af158bfbf67945b1f3de7d1e64b57548'],
+  ['Bow tie sets', 'Navy & teal check set', 'f725d31d346ad3f2937e15e0e5c8508b'],
+  ['Brooches', 'Heritage brooch set', '75b9a6428993c35ea00f9b843624f750'],
+  ['Buttons', 'Gold crystal buttons', '67d9be052ba2631b0afb108fbc7a11ac'],
+  ['Bow tie sets', 'Tan & red plaid set', 'da8a9686165aa6e2b6d46b1d9fb46719'],
+  ['Lapel pins', 'Lapel pin collection', '5fa0e84909807091fd0d318cab43324a'],
+  ['Brooches', 'Elephant drop brooch', '6ad9c5f614285693a074e839e5e630d1'],
+  ['Brooches', 'Filigree stone brooch', 'dea5cea75b90d640ef79684a31214f62'],
+  ['Brooches', 'Elephant medallion brooch', '4ba5eb4bfd7d34fc68a7cdf5bbb61ad2'],
+  ['Brooches', 'Lion crest brooch', '7ee9b25dda09e5d1ce3458bfca7fa067'],
+  ['Brooches', 'Crown crest brooch', '78fd23febc4f236d4a4fde9758ff1584'],
+  ['Brooches', 'Lotus elephant brooch', '17f814902e2da07bfa45d60c242f23a5'],
+  ['Brooches', 'Chain drop brooch', 'f04b1103ba6e9a10d5fc698e55d7e44d'],
+  ['Bow tie sets', 'Red & grey plaid set', '76b4de36505c675383be7a9ed6702524'],
+  ['Bow tie sets', 'Mustard & navy plaid set', '52fcdda059e900f48a7bdc1d6749cf5b'],
+  ['Bow tie sets', 'Purple check set', '537f6e7451852f9cb3c421d516ae6c98'],
+  ['Bow tie sets', 'Beige & grey plaid set', '3fc23269f033a643a953ab8f86f01c0a'],
+  ['Bow tie sets', 'Steel blue check set', '2aa58698a8e2c1f18665588c04f6a21e'],
+  ['Bow tie sets', 'Royal blue & grey set', 'a5313033dd41d49545c9a3f708d1f84e'],
+  ['Bow tie sets', 'Navy & lime plaid set', '1ae5c8f073ff759cac8ca9eac0841fdd'],
+  ['Bow tie sets', 'Brown & blush plaid set', '4a41cdf311bd9bcc5b499c4784c3e322'],
+  ['Bow tie sets', 'Slate blue check set', 'bf3493c2c3f383c374243bac5ba845cb'],
+  ['Bow tie sets', 'Teal plaid set', '319d9046a86fb2820e6860c19b8c63b6'],
+  ['Bow tie sets', 'Pink & grey plaid set', 'e016a0c2e5fb41ad306b24a0a9ee4679'],
+  ['Buttons', 'Zari frog closures', '93c628d35a51ff2ff55b0bb7987d9490'],
+  ['Buttons', 'Leather hook closures', '31f23b24abebb328cbe32acd6711d640'],
+  ['Buttons', 'Silver crystal buttons', 'ec82d340bac32e60e05c9cdbc2dbad80'],
+  ['Buttons', 'Chinese knot buttons', '0d5689f972154845923d797028517c7e'],
+  ['Buttons', 'Leather strap closures', '8f15e2051cc0b11da11fa8f49c7f86ed'],
+  ['Buttons', 'Rose pearl clasps', '84efcbd2f1570e2ecea2b0d08da5963d'],
+  ['Buttons', 'Silver bow buttons', 'affeed4508f38a83507b48237c26d5b9'],
+  ['Lapel pins', 'Novelty lapel pins', '3fabc92d346807a602d7adaebd0e0fb0'],
+  ['Collar bars', 'Collar bars', '74b0c6491a405d98cb770fd9ebabb268']
+];
+const BLURBS = {
+  'Brooches': 'Antique-finish metal brooch.',
+  'Bow tie sets': 'Bow tie, pocket square, cufflinks and lapel flower in a gift box.',
+  'Buttons': 'Decorative buttons and closures.',
+  'Lapel pins': 'Small pins with big personality.',
+  'Collar bars': 'Keeps the collar sharp all day.'
+};
+const TRUST = [
+  { icon: 'M3 7h11v9H3zM14 10h4l3 3v3h-7z', label: 'Free shipping across India' },
+  { icon: 'M12 3a9 9 0 1 0 .01 0M12 7v5l3 2', label: 'Delivered in 3 days' },
+  { icon: 'M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5A8 8 0 0 1 4 12z', label: 'Order on WhatsApp' },
+  { icon: 'M4 10h16v10H4zM3 7h18v3H3zM12 7v13', label: 'Gift-boxed bow tie sets' },
+  { icon: 'M6 3h12l3 6-9 12L3 9zM3 9h18', label: 'Heritage detailing' }
+];
+// Same timings as the reference site: banner slides 700ms every 3s and loops; category carousel 400ms ease.
+const HERO_SPEED = 700, HERO_DELAY = 3000, CAT_DELAY = 3000;
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { cart: 0, cat: 'All', all: false, slide: 0, anim: true, ci: 0, cprev: 0 };
+  }
+  componentDidMount() {
+    if ((this.props.autoplay ?? true) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      this.heroTimer = setInterval(() => this.goSlide(this.state.slide + 1), HERO_DELAY + HERO_SPEED);
+      this.catTimer = setInterval(() => this.goCat(this.state.ci + 1), CAT_DELAY);
+    }
+    this.revealTimer = setTimeout(() => this.setupReveal(), 60);
+  }
+  componentWillUnmount() {
+    clearInterval(this.heroTimer);
+    clearInterval(this.catTimer);
+    clearTimeout(this.revealTimer);
+    clearTimeout(this.loopTimer);
+    if (this.io) this.io.disconnect();
+  }
+  goSlide(n) {
+    this.setState({ slide: n, anim: true });
+    // Swiper-style loop: slide onto the cloned first slide, then jump back to the real one unseen.
+    if (n === HERO.length) {
+      clearTimeout(this.loopTimer);
+      this.loopTimer = setTimeout(() => this.setState({ slide: 0, anim: false }), HERO_SPEED + 20);
+    }
+  }
+  goCat(i) {
+    this.setState({ cprev: this.state.ci, ci: (i + CATS.length) % CATS.length });
+  }
+  // Dawn's scroll-trigger: below-the-fold blocks fade up 2rem over 0.6s when they enter view, 75ms apart.
+  setupReveal() {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    this.io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (e.isIntersecting) { e.target.classList.add('in'); this.io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -60px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => {
+      if (el.getBoundingClientRect().top < window.innerHeight) return;
+      el.classList.add('rv');
+      this.io.observe(el);
+    });
+  }
+  renderVals() {
+    const s = this.state;
+    const gold = this.props.gold ?? '#D4AF37';
+    const add = () => this.setState({ cart: s.cart + 1 });
+    const setCat = (cat) => () => this.setState({ cat, all: false });
+    const N = HERO.length;
+    const heroSlides = HERO.concat([HERO[0]]).map((h, i) => ({
+      ...h, a: B(h.a), b: B(h.b),
+      hidden: i === s.slide ? 'false' : 'true',
+      tab: i === s.slide ? '0' : '-1',
+      pick: setCat(h.cat)
+    }));
+    const heroTrack = 'display: flex; transform: translate3d(-' + (s.slide * 100) + '%, 0, 0); transition: ' + (s.anim ? 'transform ' + HERO_SPEED + 'ms ease' : 'none');
+    const heroDots = HERO.map((h, i) => {
+      const on = i === s.slide % N;
+      return { n: i + 1, current: on ? 'true' : 'false', pick: () => this.goSlide(i), style: 'display: block; width: ' + (on ? '22px' : '8px') + '; height: 8px; border-radius: 4px; background: ' + (on ? '#FFC263' : 'rgba(247,240,230,0.45)') + '; transition: width .3s ease, background .3s ease' };
+    });
+    const items = CATALOG.map(([cat, name, id]) => ({ cat, name, src: B(id), price: 'Price on WhatsApp', blurb: BLURBS[cat], add }));
+    const off = (i, a) => ((i - a + CATS.length + 2) % CATS.length) - 2;
+    const tiles = CATS.map((label, i) => {
+      const o = off(i, s.ci), was = off(i, s.cprev), d = Math.abs(o);
+      const scale = d === 0 ? 1.1 : d === 1 ? 0.85 : 0.8;
+      const ease = Math.abs(o - was) > 1 ? 'none' : 'transform .4s ease, opacity .4s ease';
+      return {
+        label,
+        src: B(TILE_IMG[label]),
+        count: items.filter((p) => p.cat === label).length,
+        click: (e) => {
+          if (o !== 0) { e.preventDefault(); this.goCat(i); }
+          else this.setState({ cat: label, all: false });
+        },
+        style: 'position: absolute; left: 50%; top: 40px; width: 300px; margin-left: -150px; display: block; text-decoration: none; transform: translateX(' + (o * 270) + 'px) scale(' + scale + '); opacity: ' + (d === 0 ? 1 : d === 1 ? 0.6 : 0.5) + '; z-index: ' + (10 - d) + '; transition: ' + ease,
+        imgStyle: 'width: 100%; height: 400px; object-fit: cover; display: block; border-radius: 20px; filter: grayscale(' + (d === 0 ? 0 : 100) + '%); transition: filter .4s ease'
+      };
+    });
+    const cats = ['All'].concat(CATS).map((label) => {
+      const on = label === s.cat;
+      return {
+        label,
+        selected: on ? 'true' : 'false',
+        pick: setCat(label),
+        style: 'min-height: 44px; padding: 0 22px; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background .2s, color .2s; ' + (on ? 'background: linear-gradient(90deg, #FEEECB, #FFC263); color: #141414; border: 1px solid #FFC263' : 'background: transparent; color: #F7F0E6; border: 1px solid #3A3A3A')
+      };
+    });
+    const outfits = [
+      { title: 'Kurta', cat: 'Buttons', text: 'Swap plain buttons for crystal studs or zari closures.', src: B('67d9be052ba2631b0afb108fbc7a11ac') },
+      { title: 'Suit', cat: 'Bow tie sets', text: 'Bow tie, pocket square, cufflinks and lapel flower, matched in one box.', src: B('f725d31d346ad3f2937e15e0e5c8508b') },
+      { title: 'Sherwani', cat: 'Brooches', text: 'One statement brooch on the chest is all a sherwani or bandhgala needs.', src: B('7a01bcbfe2020658253c9786939a654b') }
+    ].map((o) => ({ ...o, pick: setCat(o.cat) }));
+    const filtered = items.filter((p) => s.cat === 'All' || p.cat === s.cat);
+    // "All" shows 8 until expanded; a category shows everything in it
+    const collapsed = s.cat === 'All' && !s.all;
+    const products = (collapsed ? filtered.slice(0, 8) : filtered).map((p, i) => ({ ...p, order: i % 4 }));
+    return {
+      gold,
+      cartCount: s.cart,
+      heroSlides,
+      heroTrack,
+      heroDots,
+      featured: items.slice(0, 8),
+      tiles,
+      outfits,
+      trust: TRUST.concat(TRUST),
+      cats,
+      products,
+      hasMore: collapsed && filtered.length > 8,
+      total: filtered.length,
+      showAll: () => this.setState({ all: true }),
+      insta: ['dea5cea75b90d640ef79684a31214f62', 'da8a9686165aa6e2b6d46b1d9fb46719', 'ec82d340bac32e60e05c9cdbc2dbad80', '7ee9b25dda09e5d1ce3458bfca7fa067', '4a41cdf311bd9bcc5b499c4784c3e322', '31f23b24abebb328cbe32acd6711d640'].map((id) => ({ src: B(id) }))
+    };
+  }
+}
+
+const comp = new Component({"gold": "#D4AF37", "autoplay": true});
+vals = Vue.reactive(comp.renderVals());
+Vue.createApp({ template: '#tpl', setup: () => vals }).mount('#app');
+Vue.nextTick(() => comp.componentDidMount && comp.componentDidMount());
+</script>
+</body>
+</html>
