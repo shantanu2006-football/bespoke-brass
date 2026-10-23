@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
 <style>
-body{margin:0;background:#030303}
+body{margin:0;background:#1A1712}
 a{color:#F7F0E6}a:hover{color:#FFC263}
 @media (max-width: 860px){.hide-sm{display:none !important}.stack-sm{flex-direction:column !important}}
 .btn-gold{background:linear-gradient(90deg,#FEEECB,#FFC263);color:#141414;border:0;transition:box-shadow .1s ease}
@@ -19,16 +19,16 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 .nav-link{text-decoration:none}
 .icon-btn svg{transition:transform .2s ease}
 .icon-btn:hover svg{transform:scale(1.07)}
-.slide{flex:0 0 100%;height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:#030303}
+.slide{flex:0 0 100%;height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:#1A1712}
 .slide-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px}
 .slide-imgs img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width: 760px){.slide{grid-template-columns:1fr;grid-template-rows:300px auto;height:640px}}
 @keyframes marquee-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 .marquee{display:flex;width:max-content;animation:marquee-scroll 25s linear infinite}
 .marquee-wrap{overflow:hidden}
-.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#3A3A3A transparent}
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;scrollbar-width:thin;scrollbar-color:#554D42 transparent}
 .rail>*{scroll-snap-align:start}
-.card{background:#101010;border:1px solid #1E1E1E}
+.card{background:#26221B;border:1px solid #3A342B}
 .card-img{overflow:hidden}
 .card-img .ph{transition:transform .5s ease}
 .card:hover .card-img .ph{transform:scale(1.03)}
@@ -46,11 +46,11 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 <body>
 <div id="app"></div>
 <script type="text/x-template" id="tpl">
-<div style="font-family: 'Lato', sans-serif; color: #F7F0E6; background: #030303; min-height: 100vh; position: relative">
+<div style="font-family: 'Lato', sans-serif; color: #F7F0E6; background: #1A1712; min-height: 100vh; position: relative">
 
-  <div style="background: linear-gradient(90deg, #FEEECB, #FFC263); color: #141414; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; padding: 10px 16px">Free shipping across India · Delivered in 3 days · Order on WhatsApp: +91 77386 78526</div>
+  <div style="background: linear-gradient(90deg, #FEEECB, #FFC263); color: #141414; text-align: center; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; padding: 10px 16px">Free shipping on orders of ₹1,000+ · Delivered in 3 days · Order on WhatsApp: +91 77386 78526</div>
 
-  <header style="background: #030303; border-bottom: 1px solid #1E1E1E; position: sticky; top: 0; z-index: 20">
+  <header style="background: #1A1712; border-bottom: 1px solid #3A342B; position: sticky; top: 0; z-index: 20">
     <div style="max-width: 1320px; margin: 0 auto; padding: 16px 24px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px">
       <nav aria-label="Main" class="hide-sm" style="display: flex; gap: 24px; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; flex-wrap: wrap">
         <a href="#top" class="nav-link">Home</a>
@@ -75,7 +75,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
     </div>
   </header>
 
-  <section id="top" aria-roledescription="carousel" aria-label="Featured collections" style="position: relative; overflow: hidden; border-bottom: 1px solid #1E1E1E">
+  <section id="top" aria-roledescription="carousel" aria-label="Featured collections" style="position: relative; overflow: hidden; border-bottom: 1px solid #3A342B">
     <div :style="heroTrack">
       <template v-for="(s, idx_) in heroSlides">
         <div class="slide" :aria-hidden="s.hidden">
@@ -99,14 +99,14 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
   <section style="max-width: 1320px; margin: 0 auto; padding: 88px 24px 40px">
     <div data-reveal="" style="text-align: center; margin-bottom: 40px">
       <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">The Signature Edit</h2>
-      <p style="margin: 0; color: #B9B2A6; font-size: 16px">Statement pieces, picked to be noticed.</p>
+      <p style="margin: 0; color: #CFC8BC; font-size: 16px">Statement pieces, picked to be noticed.</p>
     </div>
     <div class="rail" data-reveal="">
       <template v-for="(p, idx_) in featured">
         <article class="card" style="display: flex; flex-direction: column">
           <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
             <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
-            <span style="position: absolute; top: 12px; left: 12px; background: rgba(3,3,3,0.8); color: #FFC263; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 10px">{{p.cat}}</span>
+            <span style="position: absolute; top: 12px; left: 12px; background: rgba(26,23,18,0.8); color: #FFC263; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 10px">{{p.cat}}</span>
           </a>
           <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1">
             <a href="product.html" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
@@ -121,30 +121,30 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
   <section id="categories" style="padding: 64px 0 72px; overflow: hidden">
     <div data-reveal="" style="text-align: center; margin-bottom: 24px; padding: 0 24px">
       <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase">Shop by categories</h2>
-      <p style="margin: 0; color: #B9B2A6; font-size: 16px">Every finishing touch, in one place.</p>
+      <p style="margin: 0; color: #CFC8BC; font-size: 16px">Every finishing touch, in one place.</p>
     </div>
     <div aria-roledescription="carousel" aria-label="Categories" style="position: relative; height: 500px">
       <template v-for="(t, idx_) in tiles">
         <a href="#range" @click="t.click" :aria-label="`${t.label}, ${t.count} designs`" :style="t.style">
           <img :src="t.src" alt="" loading="lazy" :style="t.imgStyle">
-          <span style="position: absolute; bottom: 20px; left: 50%; transform: translate(-50%); width: 90%; box-sizing: border-box; padding: 12px 20px; background: rgba(3,3,3,0.72); color: #FFFFFF; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; text-align: center">{{t.label}} <span style="color: #FFC263; font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 14px">· {{t.count}} designs</span></span>
+          <span style="position: absolute; bottom: 20px; left: 50%; transform: translate(-50%); width: 90%; box-sizing: border-box; padding: 12px 20px; background: rgba(26,23,18,0.72); color: #FFFFFF; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; text-align: center">{{t.label}} <span style="color: #FFC263; font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 14px">· {{t.count}} designs</span></span>
         </a>
       </template>
     </div>
   </section>
 
-  <section id="outfit" style="background: #0B0B0B; border-top: 1px solid #1E1E1E; border-bottom: 1px solid #1E1E1E">
+  <section id="outfit" style="background: #201C16; border-top: 1px solid #3A342B; border-bottom: 1px solid #3A342B">
     <div style="max-width: 1320px; margin: 0 auto; padding: 88px 24px">
       <div data-reveal="" style="text-align: center; margin-bottom: 40px">
         <p :style="`margin: 0 0 10px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">The Bespoke Brass style guide</p>
         <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Choose your outfit</h2>
-        <p style="margin: 0; color: #B9B2A6; font-size: 16px">Find the piece that works with what you are wearing.</p>
+        <p style="margin: 0; color: #CFC8BC; font-size: 16px">Find the piece that works with what you are wearing.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
         <template v-for="(o, idx_) in outfits">
-          <a href="#range" @click="o.pick" class="outfit" data-reveal="" :style="`--o: ${idx_}; position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; border: 1px solid #1E1E1E`">
+          <a href="#range" @click="o.pick" class="outfit" data-reveal="" :style="`--o: ${idx_}; position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; border: 1px solid #3A342B`">
             <img :src="o.src" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
-            <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,3,3,0.95) 0%, rgba(3,3,3,0.3) 50%, rgba(3,3,3,0) 100%)"></span>
+            <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,23,18,0.95) 0%, rgba(26,23,18,0.3) 50%, rgba(26,23,18,0) 100%)"></span>
             <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
               <span style="font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 28px; letter-spacing: 0.08em; text-transform: uppercase; color: #FFFFFF">{{o.title}}</span>
               <span style="color: #E8E1D5; font-size: 15px; line-height: 1.55">{{o.text}}</span>
@@ -156,7 +156,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
     </div>
   </section>
 
-  <div class="marquee-wrap" style="border-bottom: 1px solid #1E1E1E; padding: 26px 0">
+  <div class="marquee-wrap" style="border-bottom: 1px solid #3A342B; padding: 26px 0">
     <div class="marquee" style="gap: 40px; align-items: center; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding-right: 40px">
       <template v-for="(t, idx_) in trust">
         <span style="display: flex; align-items: center; gap: 12px; white-space: nowrap"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path :d="t.icon"></path></svg>{{t.label}}</span>
@@ -167,7 +167,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
   <section id="range" style="max-width: 1320px; margin: 0 auto; padding: 88px 24px 40px">
     <div data-reveal="" style="text-align: center; margin-bottom: 32px">
       <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Shop by range</h2>
-      <p style="margin: 0; color: #B9B2A6; font-size: 16px">Every design ships free across India.</p>
+      <p style="margin: 0; color: #CFC8BC; font-size: 16px">Free shipping on orders of ₹1,000+ across India.</p>
     </div>
     <div role="group" aria-label="Filter by category" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px">
       <template v-for="(c, idx_) in cats">
@@ -181,10 +181,10 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
             <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
           </a>
           <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1">
-            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #B9B2A6">{{p.cat}}</span>
+            <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #CFC8BC">{{p.cat}}</span>
             <a href="product.html" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
             <span style="color: #FFC263; font-weight: 700">{{p.price}}</span>
-            <p style="margin: 0 0 8px; color: #B9B2A6; font-size: 14px; line-height: 1.5">{{p.blurb}}</p>
+            <p style="margin: 0 0 8px; color: #CFC8BC; font-size: 14px; line-height: 1.5">{{p.blurb}}</p>
             <button @click="p.add" class="btn-gold" style="margin-top: auto; min-height: 46px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Add to cart</button>
           </div>
         </article>
@@ -199,17 +199,17 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 
   <section id="story" style="max-width: 1320px; margin: 0 auto; padding: 80px 24px">
     <div class="stack-sm" style="display: flex; gap: 64px; align-items: center">
-      <img data-reveal="" src="img/lotus-elephant.jpg" alt="Two lotus elephant brooches" loading="lazy" style="flex: 1 1 0; min-width: 0; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid #1E1E1E">
+      <img data-reveal="" src="img/lotus-elephant.jpg" alt="Two lotus elephant brooches" loading="lazy" style="flex: 1 1 0; min-width: 0; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid #3A342B">
       <div data-reveal="" style="--o: 1; flex: 1 1 0; min-width: 0">
         <p :style="`margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">Our story</p>
         <h2 style="margin: 0 0 20px; font-family: 'Raleway', sans-serif; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">Small details. Big difference.</h2>
-        <p style="margin: 0 0 32px; color: #D9D2C6; font-size: 17px; line-height: 1.75">We started in Mumbai with a simple idea: the right finishing touch changes the whole outfit. A brooch on a sherwani, a matching bow tie at a reception, the buttons on a festive kurta. We pick every design for its detail and finish, and we are always a WhatsApp message away if you need help choosing.</p>
+        <p style="margin: 0 0 32px; color: #D9D2C6; font-size: 17px; line-height: 1.75">We started in Mumbai with a simple idea: the right finishing touch changes the whole outfit. A brooch on a sherwani, a matching bow tie at a reception, the buttons on a tailored suit. We pick every design for its detail and finish, and we are always a WhatsApp message away if you need help choosing.</p>
         <a href="#range" class="btn-line" style="display: inline-block; text-decoration: none; padding: 15px 34px; font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase">Shop the collection</a>
       </div>
     </div>
   </section>
 
-  <section style="border-top: 1px solid #1E1E1E">
+  <section style="border-top: 1px solid #3A342B">
     <div style="max-width: 1320px; margin: 0 auto; padding: 80px 24px">
       <div data-reveal="" style="text-align: center; margin-bottom: 32px">
         <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Follow us on Instagram</h2>
@@ -238,17 +238,16 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Shop</h3>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Brooches</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Brooches &amp; lapel pins</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Brooch &amp; button sets</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Buttons</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Lapel pins</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Collar chains</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Tie &amp; bow sets</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Garment care</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Help</h3>
-        <span style="color: #3D3830">Free shipping across India</span>
+        <span style="color: #3D3830">Free shipping on orders of ₹1,000+</span>
         <span style="color: #3D3830">Delivered in 3 days</span>
         <a href="#" style="color: #3D3830; text-decoration: none">Terms &amp; privacy</a>
       </div>
@@ -288,34 +287,36 @@ class DCLogic {
 
 const B = (id) => IMG[id];
 const HERO = [
-  { kicker: 'Brooches · Buttons · Lapel pins', title: 'The details that finish the look', text: 'Finishing touches for sherwanis, suits and kurtas, shipped free across India.', cta: 'Shop now', cat: 'All', a: 'c3fb1a0bdbdd0dc29648b178a38808f0', b: '1797d687b3004b81f843bec6d0240aae' },
-  { kicker: 'Statement brooches', title: 'Statement brooches', text: 'Lions, tigers, reindeer and heritage designs in antique gold and silver.', cta: 'Shop brooches', cat: 'Brooches', a: '1a609dd52bfda7decedec2f11c5e47dc', b: '143ed874193ded8f78b14278a5aabaab' },
+  { kicker: 'Brooches · Lapel pins · Buttons', title: 'The details that finish the look', text: 'Finishing touches for suits, sherwanis and blazers, delivered across India.', cta: 'Shop now', cat: 'All', a: 'c3fb1a0bdbdd0dc29648b178a38808f0', b: '1797d687b3004b81f843bec6d0240aae' },
+  { kicker: 'Statement brooches', title: 'Statement brooches', text: 'Lions, tigers, reindeer and heritage designs in antique gold and silver.', cta: 'Shop brooches', cat: 'Brooches & lapel pins', a: '1a609dd52bfda7decedec2f11c5e47dc', b: '143ed874193ded8f78b14278a5aabaab' },
   { kicker: 'Brooch & button sets', title: 'Dress the sherwani', text: 'A statement brooch with buttons to match, made for sherwanis and bandhgalas.', cta: 'Shop sets', cat: 'Brooch & button sets', a: '7b9d8028ffd6804feaddce3abe9a0ad3', b: 'aef44a89b21a731be2e647cd09b2d342' },
-  { kicker: 'Buttons', title: 'Finish your kurta', text: 'Pearl, crystal and enamel buttons, boxed and ready to stitch on.', cta: 'Shop buttons', cat: 'Buttons', a: '9ec5fa79f18c9cfc40eebf89452e6ba1', b: '5632cbc42b1f6e6209a323cad6cf6941' },
+  { kicker: 'Buttons', title: 'Finish your suit', text: 'Pearl, crystal and enamel buttons, boxed and ready to stitch on.', cta: 'Shop buttons', cat: 'Buttons', a: '9ec5fa79f18c9cfc40eebf89452e6ba1', b: '5632cbc42b1f6e6209a323cad6cf6941' },
   { kicker: 'Gift-boxed sets', title: 'Tie & bow tie sets', text: 'Necktie, bow tie, lapel flower and cufflinks, matched in one box.', cta: 'Shop tie sets', cat: 'Tie & bow sets', a: 'b18d78a079158eddd781a078cc48fd49', b: 'c67b3586aadd195c600d0065447d7380' }
 ];
-const CATS = ['Brooches', 'Brooch & button sets', 'Buttons', 'Lapel pins', 'Collar chains', 'Tie & bow sets', 'Garment care'];
-const TILE_IMG = { 'Brooches': '1797d687b3004b81f843bec6d0240aae', 'Brooch & button sets': 'c3fb1a0bdbdd0dc29648b178a38808f0', 'Buttons': 'e7d3a94d9ce861639f5ad37bd3071a01', 'Lapel pins': '878e1fb3885f10dccbb05e3a26b0ef9e', 'Collar chains': '286f017eb6c1903dfdce40e2da61f32e', 'Tie & bow sets': '45bc81e7148f61f363798bba1b90c784', 'Garment care': 'eda9578110e79815678390b0dc82200e' };
+const CATS = ['Brooches & lapel pins', 'Brooch & button sets', 'Buttons', 'Collar chains', 'Tie & bow sets', 'Garment care'];
+// Price per category, in rupees.
+const PRICES = { 'Brooches & lapel pins': 250, 'Brooch & button sets': 800, 'Buttons': 3500, 'Collar chains': 250, 'Tie & bow sets': 900, 'Garment care': 600 };
+const TILE_IMG = { 'Brooches & lapel pins': '1797d687b3004b81f843bec6d0240aae', 'Brooch & button sets': 'c3fb1a0bdbdd0dc29648b178a38808f0', 'Buttons': 'e7d3a94d9ce861639f5ad37bd3071a01', 'Collar chains': '286f017eb6c1903dfdce40e2da61f32e', 'Tie & bow sets': '45bc81e7148f61f363798bba1b90c784', 'Garment care': 'eda9578110e79815678390b0dc82200e' };
 // New products go here: [category, name, uploaded photo id]. The first 8 also fill the Signature Edit.
 const CATALOG = [
-  ['Brooches', 'Lion head brooch · antique gold', '1797d687b3004b81f843bec6d0240aae'],
+  ['Brooches & lapel pins', 'Lion head brooch · antique gold', '1797d687b3004b81f843bec6d0240aae'],
   ['Brooch & button sets', 'Royal umbrella set · antique gold', 'c3fb1a0bdbdd0dc29648b178a38808f0'],
-  ['Brooches', 'Tiger brooch · gold & crystal', '1a609dd52bfda7decedec2f11c5e47dc'],
+  ['Brooches & lapel pins', 'Tiger brooch · gold & crystal', '1a609dd52bfda7decedec2f11c5e47dc'],
   ['Tie & bow sets', 'Blue plaid tie & bow set', 'b18d78a079158eddd781a078cc48fd49'],
   ['Buttons', 'Pearl lattice buttons · gold', '9ec5fa79f18c9cfc40eebf89452e6ba1'],
-  ['Brooches', 'Reindeer brooch · gold & blue stone', '143ed874193ded8f78b14278a5aabaab'],
-  ['Lapel pins', 'Anchor lapel pin · gold', '878e1fb3885f10dccbb05e3a26b0ef9e'],
+  ['Brooches & lapel pins', 'Reindeer brooch · gold & blue stone', '143ed874193ded8f78b14278a5aabaab'],
+  ['Brooches & lapel pins', 'Anchor lapel pin · gold', '878e1fb3885f10dccbb05e3a26b0ef9e'],
   ['Collar chains', 'Crown & tassel collar chains', 'b1dddba0f6e0ffcf9494fb74c8bbbeb7'],
-  ['Brooches', 'Lion head brooch · antique silver', '091486dc486879e609aff78c0d6eac2d'],
-  ['Brooches', 'Tiger brooch · silver & crystal', '51bdd1840fb652f56620d231f0657873'],
-  ['Brooches', 'Reindeer brooch · silver', 'ecbb3606ed629684a7434754915e81f6'],
-  ['Brooches', 'Reindeer brooch · black & crystal', '1c5c146b99c32be556ccb918be8896ec'],
-  ['Brooches', 'Sewing machine brooch · ivory', 'a0ffb297e69327ee978e3f630a0423f6'],
-  ['Brooches', 'Sewing machine brooch · black & gold', '3c5c77164f6909f84bd1490bf59d4b13'],
-  ['Brooches', 'Sheriff star brooch', '9d6dac8ea905bd070908d6c65f0b3d38'],
-  ['Brooches', 'Elephant brooch · three finishes', '79f2ddcbf5ab74500a4a7d906fd7196d'],
-  ['Brooches', 'Lotus elephant brooch', '13571e72127f47c050f3c034617fd94e'],
-  ['Brooches', 'Radha Krishna brooch', '89241c3c878b10a970b2c8abacf73022'],
+  ['Brooches & lapel pins', 'Lion head brooch · antique silver', '091486dc486879e609aff78c0d6eac2d'],
+  ['Brooches & lapel pins', 'Tiger brooch · silver & crystal', '51bdd1840fb652f56620d231f0657873'],
+  ['Brooches & lapel pins', 'Reindeer brooch · silver', 'ecbb3606ed629684a7434754915e81f6'],
+  ['Brooches & lapel pins', 'Reindeer brooch · black & crystal', '1c5c146b99c32be556ccb918be8896ec'],
+  ['Brooches & lapel pins', 'Sewing machine brooch · ivory', 'a0ffb297e69327ee978e3f630a0423f6'],
+  ['Brooches & lapel pins', 'Sewing machine brooch · black & gold', '3c5c77164f6909f84bd1490bf59d4b13'],
+  ['Brooches & lapel pins', 'Sheriff star brooch', '9d6dac8ea905bd070908d6c65f0b3d38'],
+  ['Brooches & lapel pins', 'Elephant brooch · three finishes', '79f2ddcbf5ab74500a4a7d906fd7196d'],
+  ['Brooches & lapel pins', 'Lotus elephant brooch', '13571e72127f47c050f3c034617fd94e'],
+  ['Brooches & lapel pins', 'Radha Krishna brooch', '89241c3c878b10a970b2c8abacf73022'],
   ['Brooch & button sets', 'Royal umbrella set · antique silver', '7b9d8028ffd6804feaddce3abe9a0ad3'],
   ['Brooch & button sets', 'Lion crest set · antique silver', '6ae7632ca589af4fb44890c4608fb88d'],
   ['Buttons', 'Camellia enamel buttons · gold', 'bad09f43c3f3a140fbb46766f9ad4ec5'],
@@ -323,10 +324,10 @@ const CATALOG = [
   ['Buttons', 'Ruffle flower buttons · silver', '8b356e987ceb618a271942c758c7cd91'],
   ['Buttons', 'Pearl swirl buttons · antique silver', 'e7d3a94d9ce861639f5ad37bd3071a01'],
   ['Buttons', 'Crystal camellia buttons · black & silver', '5632cbc42b1f6e6209a323cad6cf6941'],
-  ['Lapel pins', 'Anchor lapel pin · antique silver', '89e062e1d2658f0f4becf029f5ecb8b0'],
-  ['Lapel pins', 'Crossed pistols pin · silver', '969e00aafe7719a354def93363f0c41c'],
-  ['Lapel pins', 'Crossed pistols pin · antique brass', 'ae1e1710753cdd22ef9a26ed10b08b66'],
-  ['Lapel pins', 'Spectacles lapel pin · black', 'dda2275247f9db3ae3966190fd7b2602'],
+  ['Brooches & lapel pins', 'Anchor lapel pin · antique silver', '89e062e1d2658f0f4becf029f5ecb8b0'],
+  ['Brooches & lapel pins', 'Crossed pistols pin · silver', '969e00aafe7719a354def93363f0c41c'],
+  ['Brooches & lapel pins', 'Crossed pistols pin · antique brass', 'ae1e1710753cdd22ef9a26ed10b08b66'],
+  ['Brooches & lapel pins', 'Spectacles lapel pin · black', 'dda2275247f9db3ae3966190fd7b2602'],
   ['Collar chains', 'Gentleman & crest collar chains', '286f017eb6c1903dfdce40e2da61f32e'],
   ['Collar chains', 'Tractor & sail collar chains', 'aa0d72205d98ae04299165f64a503455'],
   ['Tie & bow sets', 'Teal plaid tie & bow set', '45bc81e7148f61f363798bba1b90c784'],
@@ -335,16 +336,15 @@ const CATALOG = [
   ['Garment care', 'Lint remover', 'eda9578110e79815678390b0dc82200e']
 ];
 const BLURBS = {
-  'Brooches': 'Statement brooch for a lapel, sherwani or bandhgala.',
+  'Brooches & lapel pins': 'Statement brooches and lapel pins for a suit, sherwani or bandhgala.',
   'Brooch & button sets': 'A statement brooch with buttons to match.',
-  'Buttons': 'Decorative buttons for kurtas, sherwanis and blazers.',
-  'Lapel pins': 'Small pins with big personality.',
+  'Buttons': 'Decorative buttons for suits, sherwanis and blazers.',
   'Collar chains': 'Pin-and-chain pieces for the lapel or collar.',
   'Tie & bow sets': 'Necktie, bow tie, lapel flower and cufflinks in a gift box.',
   'Garment care': 'Keeps suits and knits free of lint.'
 };
 const TRUST = [
-  { icon: 'M3 7h11v9H3zM14 10h4l3 3v3h-7z', label: 'Free shipping across India' },
+  { icon: 'M3 7h11v9H3zM14 10h4l3 3v3h-7z', label: 'Free shipping on orders of ₹1,000+' },
   { icon: 'M12 3a9 9 0 1 0 .01 0M12 7v5l3 2', label: 'Delivered in 3 days' },
   { icon: 'M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5A8 8 0 0 1 4 12z', label: 'Order on WhatsApp' },
   { icon: 'M4 10h16v10H4zM3 7h18v3H3zM12 7v13', label: 'Gift-boxed tie sets' },
@@ -411,7 +411,7 @@ class Component extends DCLogic {
       const on = i === s.slide % N;
       return { n: i + 1, current: on ? 'true' : 'false', pick: () => this.goSlide(i), style: 'display: block; width: ' + (on ? '22px' : '8px') + '; height: 8px; border-radius: 4px; background: ' + (on ? '#FFC263' : 'rgba(247,240,230,0.45)') + '; transition: width .3s ease, background .3s ease' };
     });
-    const items = CATALOG.map(([cat, name, id]) => ({ cat, name, src: B(id), price: '₹550', blurb: BLURBS[cat], add: () => this.setState({ cart: Cart.add({ cat, name, src: B(id) }, 1) }) }));
+    const items = CATALOG.map(([cat, name, id]) => ({ cat, name, src: B(id), price: '₹' + PRICES[cat].toLocaleString('en-IN'), blurb: BLURBS[cat], add: () => this.setState({ cart: Cart.add({ cat, name, src: B(id), price: PRICES[cat] }, 1) }) }));
     // Signed distance from the centred card, balanced so cards sit evenly left and right.
     const H = Math.floor(CATS.length / 2);
     const off = (i, a) => ((i - a + CATS.length + H) % CATS.length) - H;
@@ -437,12 +437,12 @@ class Component extends DCLogic {
         label,
         selected: on ? 'true' : 'false',
         pick: setCat(label),
-        style: 'min-height: 44px; padding: 0 22px; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background .2s, color .2s; ' + (on ? 'background: linear-gradient(90deg, #FEEECB, #FFC263); color: #141414; border: 1px solid #FFC263' : 'background: transparent; color: #F7F0E6; border: 1px solid #3A3A3A')
+        style: 'min-height: 44px; padding: 0 22px; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer; transition: background .2s, color .2s; ' + (on ? 'background: linear-gradient(90deg, #FEEECB, #FFC263); color: #141414; border: 1px solid #FFC263' : 'background: transparent; color: #F7F0E6; border: 1px solid #554D42')
       };
     });
     const outfits = [
-      { title: 'Kurta', cat: 'Buttons', text: 'Swap plain buttons for pearl, crystal or enamel ones.', src: B('8b356e987ceb618a271942c758c7cd91') },
-      { title: 'Suit', cat: 'Lapel pins', text: 'One lapel pin makes a plain suit your own.', src: B('dda2275247f9db3ae3966190fd7b2602') },
+      { title: 'Suit', cat: 'Buttons', text: 'Swap plain buttons for pearl, crystal or enamel ones.', src: B('8b356e987ceb618a271942c758c7cd91') },
+      { title: 'Blazer', cat: 'Brooches & lapel pins', text: 'One lapel pin makes a plain blazer your own.', src: B('dda2275247f9db3ae3966190fd7b2602') },
       { title: 'Sherwani', cat: 'Brooch & button sets', text: 'A statement brooch and matching buttons are all a sherwani needs.', src: B('332981a0d34c221fc6364ea127ba7c79') }
     ].map((o) => ({ ...o, pick: setCat(o.cat) }));
     const filtered = items.filter((p) => s.cat === 'All' || p.cat === s.cat);
