@@ -67,12 +67,16 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
         </span>
       </a>
       <div style="grid-column: 3; display: flex; gap: 4px; justify-content: flex-end">
-        <button aria-label="Search" class="icon-btn" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
-        <button aria-label="Wishlist" class="icon-btn hide-sm" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></button>
-        <button aria-label="Account" class="icon-btn hide-sm" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
+        <button aria-label="Search" :aria-expanded="searchOpen" @click="toggleSearch" class="icon-btn" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
         <a href="checkout.html" :aria-label="`Cart, ${cartCount} items`" class="icon-btn" style="width: 44px; height: 44px; text-decoration: none; display: flex; align-items: center; justify-content: center; position: relative"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span :style="`position: absolute; top: 4px; right: 2px; background: ${gold}; color: #141414; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center`">{{cartCount}}</span></a>
       </div>
     </div>
+    <template v-if="showSearch">
+      <form role="search" @submit="submitSearch" style="max-width: 1320px; margin: 0 auto; padding: 0 24px 16px; display: flex; gap: 12px">
+        <input id="q" type="search" aria-label="Search products" placeholder="Search brooches, buttons, tie sets…" :value="q" @input="setQ" style="flex: 1; min-width: 0; min-height: 48px; padding: 0 16px; background: #26221B; border: 1px solid #554D42; color: #F7F0E6; font-family: inherit; font-size: 16px">
+        <button type="button" @click="toggleSearch" class="btn-line" style="min-height: 48px; padding: 0 20px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Close</button>
+      </form>
+    </template>
   </header>
 
   <section id="top" aria-roledescription="carousel" aria-label="Featured collections" style="position: relative; overflow: hidden; border-bottom: 1px solid #3A342B">
@@ -104,12 +108,12 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
     <div class="rail" data-reveal="">
       <template v-for="(p, idx_) in featured">
         <article class="card" style="display: flex; flex-direction: column">
-          <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
+          <a :href="p.href" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
             <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
             <span style="position: absolute; top: 12px; left: 12px; background: rgba(26,23,18,0.8); color: #FFC263; font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 6px 10px">{{p.cat}}</span>
           </a>
           <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1">
-            <a href="product.html" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
+            <a :href="p.href" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
             <span style="color: #FFC263; font-weight: 700">{{p.price}}</span>
             <button @click="p.add" class="btn-gold" style="margin-top: auto; min-height: 46px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Add to cart</button>
           </div>
@@ -174,15 +178,18 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
         <button @click="c.pick" :aria-pressed="c.selected" :style="c.style">{{c.label}}</button>
       </template>
     </div>
+    <template v-if="resultNote">
+      <p aria-live="polite" style="margin: -16px 0 24px; text-align: center; color: #CFC8BC">{{resultNote}}</p>
+    </template>
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px 20px">
       <template v-for="(p, idx_) in products">
         <article class="card" data-reveal="" :style="`--o: ${p.order}; display: flex; flex-direction: column`">
-          <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
+          <a :href="p.href" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
             <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
           </a>
           <div style="padding: 16px; display: flex; flex-direction: column; gap: 6px; flex: 1">
             <span style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #CFC8BC">{{p.cat}}</span>
-            <a href="product.html" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
+            <a :href="p.href" style="text-decoration: none; font-weight: 700; font-size: 16px">{{p.name}}</a>
             <span style="color: #FFC263; font-weight: 700">{{p.price}}</span>
             <p style="margin: 0 0 8px; color: #CFC8BC; font-size: 14px; line-height: 1.5">{{p.blurb}}</p>
             <button @click="p.add" class="btn-gold" style="margin-top: auto; min-height: 46px; font-family: inherit; font-weight: 700; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer">Add to cart</button>
@@ -213,11 +220,11 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
     <div style="max-width: 1320px; margin: 0 auto; padding: 80px 24px">
       <div data-reveal="" style="text-align: center; margin-bottom: 32px">
         <h2 style="margin: 0 0 10px; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase">Follow us on Instagram</h2>
-        <a href="#" style="color: #FFC263; font-weight: 700; letter-spacing: 0.06em">Instagram coming soon</a>
+        <span style="color: #FFC263; font-weight: 700; letter-spacing: 0.06em">Instagram coming soon</span>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px">
         <template v-for="(i, idx_) in insta">
-          <a href="#" class="insta" data-reveal="" aria-label="Open Instagram" :style="`--o: ${idx_}; display: block; aspect-ratio: 1 / 1; overflow: hidden`"><img :src="i.src" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+          <div class="insta" data-reveal="" :style="`--o: ${idx_}; display: block; aspect-ratio: 1 / 1; overflow: hidden`"><img :src="i.src" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></div>
         </template>
       </div>
     </div>
@@ -228,35 +235,31 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       <div style="display: flex; flex-direction: column; gap: 14px">
         <span style="display: flex; align-items: center; gap: 12px"><img src="img/logo-mark.png" alt="" style="width: 44px; height: 44px; display: block"><span style="font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.22em">BESPOKE BRASS</span></span>
         <p style="margin: 0; line-height: 1.65; color: #3D3830">Menswear accessories that finish the look.</p>
-        <form style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
-          <label for="nl-email" style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Subscribe to our newsletter</label>
+        <form @submit="subscribe" novalidate="" style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
+          <label for="nl-email" style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Get new designs first</label>
           <div style="display: flex; flex-wrap: wrap">
-            <input id="nl-email" type="email" placeholder="Your email" style="flex: 1 1 160px; min-height: 46px; padding: 0 14px; border: 1px solid #141414; background: #FFFFFF; font-family: inherit; font-size: 15px">
-            <button type="button" style="min-height: 48px; padding: 0 20px; border: 0; background: #141414; color: #F7F0E6; font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Subscribe</button>
+            <input id="nl-email" type="email" autocomplete="email" placeholder="Your email" aria-describedby="nl-msg" style="flex: 1 1 160px; min-height: 46px; padding: 0 14px; border: 1px solid #141414; background: #FFFFFF; font-family: inherit; font-size: 15px">
+            <button type="submit" style="min-height: 48px; padding: 0 20px; border: 0; background: #141414; color: #F7F0E6; font-family: inherit; font-weight: 700; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">Subscribe</button>
           </div>
+          <span id="nl-msg" aria-live="polite" style="font-size: 13px; color: #3D3830">{{nlMsg}}</span>
         </form>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Shop</h3>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Brooches &amp; lapel pins</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Brooch &amp; button sets</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Buttons</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Collar chains</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Tie &amp; bow sets</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Garment care</a>
+        <template v-for="(c, idx_) in footCats">
+          <a href="#range" @click="c.pick" style="color: #3D3830; text-decoration: none">{{c.label}}</a>
+        </template>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Help</h3>
         <span style="color: #3D3830">Free shipping on orders of ₹1,000+</span>
         <span style="color: #3D3830">Delivered in 3 days</span>
-        <a href="#" style="color: #3D3830; text-decoration: none">Terms &amp; privacy</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Contact</h3>
         <a href="https://wa.me/917738678526" target="_blank" rel="noopener" style="color: #3D3830; text-decoration: none">+91 77386 78526</a>
         <a href="mailto:mitaansh.choudhari.bba2026@atlasskilltech.university" style="color: #3D3830; overflow-wrap: anywhere">mitaansh.choudhari.bba2026@atlasskilltech.university</a>
         <span style="color: #3D3830">Mumbai, Maharashtra</span>
-        <a href="#" style="color: #3D3830; text-decoration: none">Instagram</a>
       </div>
     </div>
     <div style="max-width: 1320px; margin: 0 auto; padding: 20px 24px 32px; border-top: 1px solid #D9CFBF; font-size: 13px; color: #3D3830">© 2026 Bespoke Brass. All rights reserved.</div>
@@ -356,7 +359,7 @@ const HERO_SPEED = 700, HERO_DELAY = 3000, CAT_DELAY = 3000;
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { cart: Cart.count(), cat: 'All', all: false, slide: 0, anim: true, ci: 0, cprev: 0 };
+    this.state = { cart: Cart.count(), cat: 'All', all: false, slide: 0, anim: true, ci: 0, cprev: 0, q: '', searchOpen: false, nlMsg: '' };
   }
   componentDidMount() {
     if ((this.props.autoplay ?? true) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -411,7 +414,7 @@ class Component extends DCLogic {
       const on = i === s.slide % N;
       return { n: i + 1, current: on ? 'true' : 'false', pick: () => this.goSlide(i), style: 'display: block; width: ' + (on ? '22px' : '8px') + '; height: 8px; border-radius: 4px; background: ' + (on ? '#FFC263' : 'rgba(247,240,230,0.45)') + '; transition: width .3s ease, background .3s ease' };
     });
-    const items = CATALOG.map(([cat, name, id]) => ({ cat, name, src: B(id), price: '₹' + PRICES[cat].toLocaleString('en-IN'), blurb: BLURBS[cat], add: () => this.setState({ cart: Cart.add({ cat, name, src: B(id), price: PRICES[cat] }, 1) }) }));
+    const items = CATALOG.map(([cat, name, id], i) => ({ cat, name, src: B(id), href: 'product.html?p=' + i, price: '₹' + PRICES[cat].toLocaleString('en-IN'), blurb: BLURBS[cat], add: () => this.setState({ cart: Cart.add({ cat, name, src: B(id), price: PRICES[cat] }, 1) }) }));
     // Signed distance from the centred card, balanced so cards sit evenly left and right.
     const H = Math.floor(CATS.length / 2);
     const off = (i, a) => ((i - a + CATS.length + H) % CATS.length) - H;
@@ -445,9 +448,10 @@ class Component extends DCLogic {
       { title: 'Blazer', cat: 'Brooches & lapel pins', text: 'One lapel pin makes a plain blazer your own.', src: B('dda2275247f9db3ae3966190fd7b2602') },
       { title: 'Sherwani', cat: 'Brooch & button sets', text: 'A statement brooch and matching buttons are all a sherwani needs.', src: B('332981a0d34c221fc6364ea127ba7c79') }
     ].map((o) => ({ ...o, pick: setCat(o.cat) }));
-    const filtered = items.filter((p) => s.cat === 'All' || p.cat === s.cat);
+    const q = s.q.trim().toLowerCase();
+    const filtered = items.filter((p) => (s.cat === 'All' || p.cat === s.cat) && (!q || (p.name + ' ' + p.cat).toLowerCase().includes(q)));
     // "All" shows 8 until expanded; a category shows everything in it
-    const collapsed = s.cat === 'All' && !s.all;
+    const collapsed = s.cat === 'All' && !s.all && !q;
     const products = (collapsed ? filtered.slice(0, 8) : filtered).map((p, i) => ({ ...p, order: i % 4 }));
     return {
       gold,
@@ -464,6 +468,26 @@ class Component extends DCLogic {
       hasMore: collapsed && filtered.length > 8,
       total: filtered.length,
       showAll: () => this.setState({ all: true }),
+      searchOpen: s.searchOpen ? 'true' : 'false',
+      showSearch: s.searchOpen,
+      q: s.q,
+      toggleSearch: () => {
+        if (s.searchOpen) return this.setState({ searchOpen: false, q: '' });
+        this.setState({ searchOpen: true, cat: 'All' });
+        setTimeout(() => { const el = document.getElementById('q'); if (el) el.focus(); }, 50);
+      },
+      setQ: (e) => this.setState({ q: e.target.value, cat: 'All' }),
+      submitSearch: (e) => { e.preventDefault(); document.getElementById('range').scrollIntoView({ behavior: 'smooth' }); },
+      resultNote: q ? (filtered.length ? filtered.length + (filtered.length === 1 ? ' product' : ' products') + ' match “' + s.q.trim() + '”' : 'Nothing matches “' + s.q.trim() + '”. Try “brooch”, “buttons” or “tie”.') : '',
+      footCats: CATS.map((label) => ({ label, pick: setCat(label) })),
+      nlMsg: s.nlMsg,
+      subscribe: (e) => {
+        e.preventDefault();
+        const v = e.target.querySelector('input').value.trim();
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) return this.setState({ nlMsg: 'Enter a valid email address.' });
+        window.open('https://wa.me/917738678526?text=' + encodeURIComponent('Hi, please send me new Bespoke Brass designs. My email: ' + v), '_blank', 'noopener');
+        this.setState({ nlMsg: 'Thanks! Send the WhatsApp message to finish signing up.' });
+      },
       insta: ['3c5c77164f6909f84bd1490bf59d4b13', '1c5c146b99c32be556ccb918be8896ec', '8cef553d3e6dc579e0b9001adfa45086', '89e062e1d2658f0f4becf029f5ecb8b0', '51bdd1840fb652f56620d231f0657873', 'c09814b13bca35a1a789cd52279a4b1e'].map((id) => ({ src: B(id) }))
     };
   }

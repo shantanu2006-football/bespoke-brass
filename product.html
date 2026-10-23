@@ -63,22 +63,25 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
   <main style="max-width: 1320px; margin: 0 auto; padding: 48px 24px 96px; display: flex; flex-wrap: wrap; gap: 56px">
     <div class="in-left" style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
       <img :src="photoSrc" :alt="photoAlt" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #141414; border: 1px solid #3A342B">
+      <template v-if="hasOptions">
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
         <template v-for="(t, idx_) in thumbs">
           <button @click="t.pick" class="thumb" :aria-label="`Show ${t.label}`" :style="t.style"><img :src="t.src" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></button>
         </template>
       </div>
+      </template>
     </div>
 
     <div class="in-right" style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-      <p :style="`margin: 0; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}; font-weight: 700`">Tie &amp; bow sets · Gift box</p>
-      <h1 style="margin: 0; font-family: 'Raleway', sans-serif; font-size: 42px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">Plaid tie &amp; bow tie set</h1>
+      <p :style="`margin: 0; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}; font-weight: 700`">{{kicker}}</p>
+      <h1 style="margin: 0; font-family: 'Raleway', sans-serif; font-size: 42px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">{{title}}</h1>
       <div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap">
-        <span style="font-size: 26px; font-weight: 700; color: #FFC263">₹900</span>
+        <span style="font-size: 26px; font-weight: 700; color: #FFC263">{{price}}</span>
         <span style="color: #CFC8BC; font-size: 13px">Inclusive of all taxes</span>
       </div>
-      <p style="margin: 0; color: #D9D2C6; font-size: 17px; line-height: 1.7">A matching necktie, bow tie, lapel flower and pair of cufflinks, packed in a gift box. [Add material and occasion details.]</p>
+      <p style="margin: 0; color: #D9D2C6; font-size: 17px; line-height: 1.7">{{desc}}</p>
 
+      <template v-if="hasOptions">
       <div style="display: flex; flex-direction: column; gap: 10px">
         <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Colour: <span style="color: #FFC263">{{optionLabel}}</span></span>
         <div style="display: flex; gap: 10px; flex-wrap: wrap">
@@ -87,6 +90,7 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
           </template>
         </div>
       </div>
+      </template>
 
       <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: stretch">
         <div style="display: flex; align-items: center; border: 1px solid #554D42">
@@ -96,18 +100,20 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
         </div>
         <button @click="add" class="btn-gold" style="flex: 1 1 200px; min-height: 54px; font-family: inherit; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; cursor: pointer">{{addLabel}}</button>
       </div>
-      <a href="https://wa.me/917738678526" target="_blank" rel="noopener" class="wa-btn" style="min-height: 52px; border: 1px solid #F7F0E6; color: #F7F0E6; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.8"><path d="M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5A8 8 0 0 1 4 12z"></path></svg>Order on WhatsApp</a>
+      <a :href="waHref" target="_blank" rel="noopener" class="wa-btn" style="min-height: 52px; border: 1px solid #F7F0E6; color: #F7F0E6; text-decoration: none; font-weight: 700; font-size: 14px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; align-items: center; justify-content: center; gap: 10px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.8"><path d="M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5A8 8 0 0 1 4 12z"></path></svg>Order on WhatsApp</a>
 
       <div style="display: flex; gap: 24px; flex-wrap: wrap; padding: 16px 0; border-top: 1px solid #3A342B; border-bottom: 1px solid #3A342B; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #D9D2C6">
         <span style="display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"></path></svg>Free shipping on ₹1,000+</span>
         <span style="display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path d="M12 3a9 9 0 1 0 .01 0M12 7v5l3 2"></path></svg>Delivered in 3 days</span>
-        <span style="display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13"></path></svg>Gift boxed</span>
+        <template v-if="giftBox">
+          <span style="display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13"></path></svg>Gift boxed</span>
+        </template>
       </div>
 
       <div>
         <details open="" style="border-bottom: 1px solid #3A342B; padding: 18px 0">
           <summary style="font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; justify-content: space-between">Details <span aria-hidden="true">+</span></summary>
-          <p style="margin: 12px 0 0; color: #D9D2C6; line-height: 1.7">Includes necktie, bow tie, lapel flower and 2 cufflinks · [Material] · [Care instructions]</p>
+          <p style="margin: 12px 0 0; color: #D9D2C6; line-height: 1.7">{{details}}</p>
         </details>
         <details style="border-bottom: 1px solid #3A342B; padding: 18px 0">
           <summary style="font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; justify-content: space-between">Shipping &amp; delivery <span aria-hidden="true">+</span></summary>
@@ -121,10 +127,9 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
     <div style="max-width: 1320px; margin: 0 auto; padding: 72px 24px">
       <h2 style="margin: 0 0 32px; font-family: 'Raleway', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-align: center">You may also like</h2>
       <div class="stagger" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px">
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/lion-gold.jpg" alt="Lion head brooch" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Lion head brooch</span><span style="color: #FFC263; font-weight: 700">₹250</span></span></a>
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/btn-pearl-lattice.jpg" alt="Pearl lattice buttons" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Pearl lattice buttons</span><span style="color: #FFC263; font-weight: 700">₹3,500</span></span></a>
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/anchor-gold.jpg" alt="Anchor lapel pin" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Anchor lapel pin</span><span style="color: #FFC263; font-weight: 700">₹250</span></span></a>
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/chains-crown.jpg" alt="Crown and tassel collar chains" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Crown &amp; tassel collar chains</span><span style="color: #FFC263; font-weight: 700">₹250</span></span></a>
+        <template v-for="(r, idx_) in related">
+          <a :href="r.href" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" :src="r.src" :alt="r.name" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">{{r.name}}</span><span style="color: #FFC263; font-weight: 700">{{r.price}}</span></span></a>
+        </template>
       </div>
     </div>
   </section>
@@ -154,10 +159,65 @@ class DCLogic {
   setState(p) { Object.assign(this.state, p); Object.assign(vals, this.renderVals()); }
 }
 
+// Same catalogue as Home; dc2static.py copies Home's lists over these at build time.
+const B = (id) => IMG[id];
+// Price per category, in rupees.
+const PRICES = { 'Brooches & lapel pins': 250, 'Brooch & button sets': 800, 'Buttons': 3500, 'Collar chains': 250, 'Tie & bow sets': 900, 'Garment care': 600 };
+const CATALOG = [
+  ['Brooches & lapel pins', 'Lion head brooch · antique gold', '1797d687b3004b81f843bec6d0240aae'],
+  ['Brooch & button sets', 'Royal umbrella set · antique gold', 'c3fb1a0bdbdd0dc29648b178a38808f0'],
+  ['Brooches & lapel pins', 'Tiger brooch · gold & crystal', '1a609dd52bfda7decedec2f11c5e47dc'],
+  ['Tie & bow sets', 'Blue plaid tie & bow set', 'b18d78a079158eddd781a078cc48fd49'],
+  ['Buttons', 'Pearl lattice buttons · gold', '9ec5fa79f18c9cfc40eebf89452e6ba1'],
+  ['Brooches & lapel pins', 'Reindeer brooch · gold & blue stone', '143ed874193ded8f78b14278a5aabaab'],
+  ['Brooches & lapel pins', 'Anchor lapel pin · gold', '878e1fb3885f10dccbb05e3a26b0ef9e'],
+  ['Collar chains', 'Crown & tassel collar chains', 'b1dddba0f6e0ffcf9494fb74c8bbbeb7'],
+  ['Brooches & lapel pins', 'Lion head brooch · antique silver', '091486dc486879e609aff78c0d6eac2d'],
+  ['Brooches & lapel pins', 'Tiger brooch · silver & crystal', '51bdd1840fb652f56620d231f0657873'],
+  ['Brooches & lapel pins', 'Reindeer brooch · silver', 'ecbb3606ed629684a7434754915e81f6'],
+  ['Brooches & lapel pins', 'Reindeer brooch · black & crystal', '1c5c146b99c32be556ccb918be8896ec'],
+  ['Brooches & lapel pins', 'Sewing machine brooch · ivory', 'a0ffb297e69327ee978e3f630a0423f6'],
+  ['Brooches & lapel pins', 'Sewing machine brooch · black & gold', '3c5c77164f6909f84bd1490bf59d4b13'],
+  ['Brooches & lapel pins', 'Sheriff star brooch', '9d6dac8ea905bd070908d6c65f0b3d38'],
+  ['Brooches & lapel pins', 'Elephant brooch · three finishes', '79f2ddcbf5ab74500a4a7d906fd7196d'],
+  ['Brooches & lapel pins', 'Lotus elephant brooch', '13571e72127f47c050f3c034617fd94e'],
+  ['Brooches & lapel pins', 'Radha Krishna brooch', '89241c3c878b10a970b2c8abacf73022'],
+  ['Brooch & button sets', 'Royal umbrella set · antique silver', '7b9d8028ffd6804feaddce3abe9a0ad3'],
+  ['Brooch & button sets', 'Lion crest set · antique silver', '6ae7632ca589af4fb44890c4608fb88d'],
+  ['Buttons', 'Camellia enamel buttons · gold', 'bad09f43c3f3a140fbb46766f9ad4ec5'],
+  ['Buttons', 'Smoky crystal buttons · gold', 'c09814b13bca35a1a789cd52279a4b1e'],
+  ['Buttons', 'Ruffle flower buttons · silver', '8b356e987ceb618a271942c758c7cd91'],
+  ['Buttons', 'Pearl swirl buttons · antique silver', 'e7d3a94d9ce861639f5ad37bd3071a01'],
+  ['Buttons', 'Crystal camellia buttons · black & silver', '5632cbc42b1f6e6209a323cad6cf6941'],
+  ['Brooches & lapel pins', 'Anchor lapel pin · antique silver', '89e062e1d2658f0f4becf029f5ecb8b0'],
+  ['Brooches & lapel pins', 'Crossed pistols pin · silver', '969e00aafe7719a354def93363f0c41c'],
+  ['Brooches & lapel pins', 'Crossed pistols pin · antique brass', 'ae1e1710753cdd22ef9a26ed10b08b66'],
+  ['Brooches & lapel pins', 'Spectacles lapel pin · black', 'dda2275247f9db3ae3966190fd7b2602'],
+  ['Collar chains', 'Gentleman & crest collar chains', '286f017eb6c1903dfdce40e2da61f32e'],
+  ['Collar chains', 'Tractor & sail collar chains', 'aa0d72205d98ae04299165f64a503455'],
+  ['Tie & bow sets', 'Teal plaid tie & bow set', '45bc81e7148f61f363798bba1b90c784'],
+  ['Tie & bow sets', 'Maroon plaid tie & bow set', 'c67b3586aadd195c600d0065447d7380'],
+  ['Tie & bow sets', 'Pink plaid tie & bow set', '3d72dd2559c8b4d4682312bc4ea47cd4'],
+  ['Garment care', 'Lint remover', 'eda9578110e79815678390b0dc82200e']
+];
+const BLURBS = {
+  'Brooches & lapel pins': 'Statement brooches and lapel pins for a suit, sherwani or bandhgala.',
+  'Brooch & button sets': 'A statement brooch with buttons to match.',
+  'Buttons': 'Decorative buttons for suits, sherwanis and blazers.',
+  'Collar chains': 'Pin-and-chain pieces for the lapel or collar.',
+  'Tie & bow sets': 'Necktie, bow tie, lapel flower and cufflinks in a gift box.',
+  'Garment care': 'Keeps suits and knits free of lint.'
+};
+const TIES = 'Tie & bow sets';
+const rupees = (n) => '₹' + n.toLocaleString('en-IN');
+const WA = '917738678526';
+
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { photo: 0, qty: 1, cart: Cart.count(), added: false };
+    // ?p=<catalogue index> picks the product; without one, show the first tie set.
+    const n = parseInt(new URLSearchParams(location.search).get('p'), 10);
+    this.state = { pick: CATALOG[n] ? n : CATALOG.findIndex((x) => x[0] === TIES), qty: 1, cart: Cart.count(), added: false };
   }
   // Dawn's scroll-trigger: below-the-fold blocks fade up 2rem over 0.6s when they enter view.
   componentDidMount() {
@@ -179,36 +239,50 @@ class Component extends DCLogic {
   }
   renderVals() {
     const s = this.state;
-    const ways = [
-      { label: 'Blue', src: 'img/bow-blue.jpg' },
-      { label: 'Teal', src: 'img/bow-teal.jpg' },
-      { label: 'Maroon', src: 'img/bow-maroon.jpg' },
-      { label: 'Pink', src: 'img/bow-pink.jpg' }
-    ];
-    const pick = (i) => () => this.setState({ photo: i });
-    const thumbs = ways.map((w, i) => ({
-      label: w.label,
+    const [cat, name, id] = CATALOG[s.pick];
+    const all = CATALOG.map((x, i) => ({ cat: x[0], name: x[1], src: B(x[2]), i }));
+    // Tie sets come in colours, so their page can switch between them; other products stand alone.
+    const ways = cat === TIES ? all.filter((x) => x.cat === TIES) : [];
+    const colour = (x) => x.name.split(' ')[0];
+    const pick = (i) => () => this.setState({ pick: i, added: false });
+    const thumbs = ways.map((w) => ({
+      label: colour(w),
       src: w.src,
-      pick: pick(i),
-      style: 'aspect-ratio: 1 / 1; padding: 0; overflow: hidden; background: #141414; cursor: pointer; border: ' + (i === s.photo ? '2px solid #FFC263' : '1px solid #443D33')
+      pick: pick(w.i),
+      style: 'aspect-ratio: 1 / 1; padding: 0; overflow: hidden; background: #141414; cursor: pointer; border: ' + (w.i === s.pick ? '2px solid #FFC263' : '1px solid #443D33')
     }));
-    const options = ways.map((w, i) => ({
-      label: w.label,
-      selected: i === s.photo ? 'true' : 'false',
-      pick: pick(i),
-      style: 'min-height: 44px; padding: 0 18px; font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; cursor: pointer; ' + (i === s.photo ? 'background: #F7F0E6; color: #141414; border: 1px solid #F7F0E6' : 'background: transparent; color: #F7F0E6; border: 1px solid #554D42')
+    const options = ways.map((w) => ({
+      label: colour(w),
+      selected: w.i === s.pick ? 'true' : 'false',
+      pick: pick(w.i),
+      style: 'min-height: 44px; padding: 0 18px; font-family: inherit; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; cursor: pointer; ' + (w.i === s.pick ? 'background: #F7F0E6; color: #141414; border: 1px solid #F7F0E6' : 'background: transparent; color: #F7F0E6; border: 1px solid #554D42')
     }));
+    // Four picks from other categories, spread across the catalogue.
+    const others = all.filter((x) => x.cat !== cat);
+    const step = Math.max(1, Math.floor(others.length / 4));
+    const related = [0, 1, 2, 3].map((k) => others[(s.pick + k * step) % others.length])
+      .map((x) => ({ name: x.name, src: x.src, price: rupees(PRICES[x.cat]), href: 'product.html?p=' + x.i }));
+    const tie = cat === TIES;
     return {
       gold: this.props.gold ?? '#D4AF37',
-      photoSrc: ways[s.photo].src,
-      photoAlt: 'Plaid tie and bow tie set in ' + ways[s.photo].label,
+      photoSrc: B(id),
+      photoAlt: name,
+      kicker: tie ? cat + ' · Gift box' : cat,
+      title: name,
+      price: rupees(PRICES[cat]),
+      desc: tie ? 'A matching necktie, bow tie, lapel flower and pair of cufflinks, packed in a gift box.' : BLURBS[cat],
+      details: tie ? 'Includes necktie, bow tie, lapel flower and 2 cufflinks.' : 'Message us on WhatsApp for size, finish and care details.',
+      hasOptions: ways.length > 1,
+      giftBox: tie,
       thumbs,
       options,
-      optionLabel: ways[s.photo].label,
+      optionLabel: tie ? colour({ name }) : '',
+      related,
+      waHref: 'https://wa.me/' + WA + '?text=' + encodeURIComponent('Hi, I would like to order: ' + name + ' (' + rupees(PRICES[cat]) + ')'),
       qty: s.qty,
       inc: () => this.setState({ qty: s.qty + 1 }),
       dec: () => this.setState({ qty: Math.max(1, s.qty - 1) }),
-      add: () => this.setState({ cart: Cart.add({ cat: 'Tie & bow sets', name: ways[s.photo].label + ' plaid tie & bow set', src: ways[s.photo].src, price: 900 }, s.qty), added: true }),
+      add: () => this.setState({ cart: Cart.add({ cat, name, src: B(id), price: PRICES[cat] }, s.qty), added: true }),
       addLabel: s.added ? 'Added to cart' : 'Add to cart',
       cartCount: s.cart
     };
