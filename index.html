@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Bespoke Brass</title>
+<link rel="icon" href="img/logo-mark.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -58,22 +59,25 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
         <a href="#outfit" class="nav-link">Style guide</a>
         <a href="#story" class="nav-link">Our story</a>
       </nav>
-      <a href="#top" style="grid-column: 2; text-decoration: none; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px">
-        <span :style="`font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.22em; color: ${gold}`">BESPOKE</span>
-        <span style="font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.6em; color: #F7F0E6; padding-left: 0.6em">BRASS</span>
+      <a href="#top" aria-label="Bespoke Brass, home" style="grid-column: 2; text-decoration: none; display: flex; align-items: center; gap: 12px">
+        <img src="img/logo-mark.png" alt="" style="width: 52px; height: 52px; display: block">
+        <span style="display: flex; flex-direction: column; align-items: center; gap: 2px">
+          <span :style="`font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.22em; color: ${gold}`">BESPOKE</span>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.6em; color: #F7F0E6; padding-left: 0.6em">BRASS</span>
+        </span>
       </a>
       <div style="grid-column: 3; display: flex; gap: 4px; justify-content: flex-end">
         <button aria-label="Search" class="icon-btn" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-4-4"></path></svg></button>
         <button aria-label="Wishlist" class="icon-btn hide-sm" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"></path></svg></button>
         <button aria-label="Account" class="icon-btn hide-sm" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"></path></svg></button>
-        <button :aria-label="`Cart, ${cartCount} items`" class="icon-btn" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span :style="`position: absolute; top: 4px; right: 2px; background: ${gold}; color: #141414; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center`">{{cartCount}}</span></button>
+        <a href="checkout.html" :aria-label="`Cart, ${cartCount} items`" class="icon-btn" style="width: 44px; height: 44px; text-decoration: none; display: flex; align-items: center; justify-content: center; position: relative"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span :style="`position: absolute; top: 4px; right: 2px; background: ${gold}; color: #141414; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center`">{{cartCount}}</span></a>
       </div>
     </div>
   </header>
 
   <section id="top" aria-roledescription="carousel" aria-label="Featured collections" style="position: relative; overflow: hidden; border-bottom: 1px solid #1E1E1E">
     <div :style="heroTrack">
-      <template v-for="(s, idx) in heroSlides">
+      <template v-for="(s, idx_) in heroSlides">
         <div class="slide" :aria-hidden="s.hidden">
           <div style="display: flex; flex-direction: column; justify-content: center; padding: 48px clamp(24px, 6vw, 96px); gap: 18px; min-width: 0">
             <p :style="`margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">{{s.kicker}}</p>
@@ -86,7 +90,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       </template>
     </div>
     <div style="position: absolute; left: 0; right: 0; bottom: 20px; display: flex; justify-content: center; gap: 4px">
-      <template v-for="(d, idx) in heroDots">
+      <template v-for="(d, idx_) in heroDots">
         <button @click="d.pick" :aria-label="`Show slide ${d.n}`" :aria-current="d.current" style="width: 28px; height: 28px; border: 0; background: none; padding: 0; cursor: pointer; display: flex; align-items: center; justify-content: center"><span :style="d.style"></span></button>
       </template>
     </div>
@@ -98,7 +102,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       <p style="margin: 0; color: #B9B2A6; font-size: 16px">Statement pieces, picked to be noticed.</p>
     </div>
     <div class="rail" data-reveal="">
-      <template v-for="(p, idx) in featured">
+      <template v-for="(p, idx_) in featured">
         <article class="card" style="display: flex; flex-direction: column">
           <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
             <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
@@ -120,7 +124,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       <p style="margin: 0; color: #B9B2A6; font-size: 16px">Every finishing touch, in one place.</p>
     </div>
     <div aria-roledescription="carousel" aria-label="Categories" style="position: relative; height: 500px">
-      <template v-for="(t, idx) in tiles">
+      <template v-for="(t, idx_) in tiles">
         <a href="#range" @click="t.click" :aria-label="`${t.label}, ${t.count} designs`" :style="t.style">
           <img :src="t.src" alt="" loading="lazy" :style="t.imgStyle">
           <span style="position: absolute; bottom: 20px; left: 50%; transform: translate(-50%); width: 90%; box-sizing: border-box; padding: 12px 20px; background: rgba(3,3,3,0.72); color: #FFFFFF; font-size: 16px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; border-radius: 8px; text-align: center">{{t.label}} <span style="color: #FFC263; font-weight: 400; letter-spacing: 0; text-transform: none; font-size: 14px">· {{t.count}} designs</span></span>
@@ -137,8 +141,8 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
         <p style="margin: 0; color: #B9B2A6; font-size: 16px">Find the piece that works with what you are wearing.</p>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px">
-        <template v-for="(o, idx) in outfits">
-          <a href="#range" @click="o.pick" class="outfit" data-reveal="" :style="`--o: ${idx}; position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; border: 1px solid #1E1E1E`">
+        <template v-for="(o, idx_) in outfits">
+          <a href="#range" @click="o.pick" class="outfit" data-reveal="" :style="`--o: ${idx_}; position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; text-decoration: none; border: 1px solid #1E1E1E`">
             <img :src="o.src" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
             <span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(3,3,3,0.95) 0%, rgba(3,3,3,0.3) 50%, rgba(3,3,3,0) 100%)"></span>
             <span style="position: absolute; left: 0; right: 0; bottom: 0; padding: 28px; display: flex; flex-direction: column; gap: 10px">
@@ -154,7 +158,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 
   <div class="marquee-wrap" style="border-bottom: 1px solid #1E1E1E; padding: 26px 0">
     <div class="marquee" style="gap: 40px; align-items: center; font-size: 14px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; padding-right: 40px">
-      <template v-for="(t, idx) in trust">
+      <template v-for="(t, idx_) in trust">
         <span style="display: flex; align-items: center; gap: 12px; white-space: nowrap"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFC263" stroke-width="1.6"><path :d="t.icon"></path></svg>{{t.label}}</span>
       </template>
     </div>
@@ -166,12 +170,12 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       <p style="margin: 0; color: #B9B2A6; font-size: 16px">Every design ships free across India.</p>
     </div>
     <div role="group" aria-label="Filter by category" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px">
-      <template v-for="(c, idx) in cats">
+      <template v-for="(c, idx_) in cats">
         <button @click="c.pick" :aria-pressed="c.selected" :style="c.style">{{c.label}}</button>
       </template>
     </div>
     <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 24px 20px">
-      <template v-for="(p, idx) in products">
+      <template v-for="(p, idx_) in products">
         <article class="card" data-reveal="" :style="`--o: ${p.order}; display: flex; flex-direction: column`">
           <a href="product.html" class="card-img" style="display: block; position: relative; aspect-ratio: 1 / 1; background: #141414">
             <img class="ph" :src="p.src" :alt="p.name" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block">
@@ -195,7 +199,7 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 
   <section id="story" style="max-width: 1320px; margin: 0 auto; padding: 80px 24px">
     <div class="stack-sm" style="display: flex; gap: 64px; align-items: center">
-      <img data-reveal="" src="img/p09.jpg" alt="Two elephant brooches in a gift box" loading="lazy" style="flex: 1 1 0; min-width: 0; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid #1E1E1E">
+      <img data-reveal="" src="img/lotus-elephant.jpg" alt="Two lotus elephant brooches" loading="lazy" style="flex: 1 1 0; min-width: 0; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; border: 1px solid #1E1E1E">
       <div data-reveal="" style="--o: 1; flex: 1 1 0; min-width: 0">
         <p :style="`margin: 0 0 12px; font-size: 12px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}`">Our story</p>
         <h2 style="margin: 0 0 20px; font-family: 'Raleway', sans-serif; font-size: 40px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">Small details. Big difference.</h2>
@@ -212,8 +216,8 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
         <a href="#" style="color: #FFC263; font-weight: 700; letter-spacing: 0.06em">Instagram coming soon</a>
       </div>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 8px">
-        <template v-for="(i, idx) in insta">
-          <a href="#" class="insta" data-reveal="" aria-label="Open Instagram" :style="`--o: ${idx}; display: block; aspect-ratio: 1 / 1; overflow: hidden`"><img :src="i.src" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
+        <template v-for="(i, idx_) in insta">
+          <a href="#" class="insta" data-reveal="" aria-label="Open Instagram" :style="`--o: ${idx_}; display: block; aspect-ratio: 1 / 1; overflow: hidden`"><img :src="i.src" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></a>
         </template>
       </div>
     </div>
@@ -222,8 +226,8 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
   <footer style="background: #F7F0E6; color: #141414">
     <div style="max-width: 1320px; margin: 0 auto; padding: 72px 24px 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 40px">
       <div style="display: flex; flex-direction: column; gap: 14px">
-        <span style="font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.22em">BESPOKE BRASS</span>
-        <p style="margin: 0; line-height: 1.65; color: #3D3830">Brooches, bow tie sets and buttons that finish the look.</p>
+        <span style="display: flex; align-items: center; gap: 12px"><img src="img/logo-mark.png" alt="" style="width: 44px; height: 44px; display: block"><span style="font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 22px; letter-spacing: 0.22em">BESPOKE BRASS</span></span>
+        <p style="margin: 0; line-height: 1.65; color: #3D3830">Menswear accessories that finish the look.</p>
         <form style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px">
           <label for="nl-email" style="font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase">Subscribe to our newsletter</label>
           <div style="display: flex; flex-wrap: wrap">
@@ -235,10 +239,12 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Shop</h3>
         <a href="#range" style="color: #3D3830; text-decoration: none">Brooches</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Bow tie sets</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Brooch &amp; button sets</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Buttons</a>
         <a href="#range" style="color: #3D3830; text-decoration: none">Lapel pins</a>
-        <a href="#range" style="color: #3D3830; text-decoration: none">Collar bars</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Collar chains</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Tie &amp; bow sets</a>
+        <a href="#range" style="color: #3D3830; text-decoration: none">Garment care</a>
       </div>
       <div style="display: flex; flex-direction: column; gap: 10px">
         <h3 style="margin: 0 0 6px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase">Help</h3>
@@ -262,7 +268,18 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
 <script>
-const IMG = {"dea5cea75b90d640ef79684a31214f62": "img/p00.jpg", "b69d90fea44e726c74e952e57e3d03c3": "img/p01.jpg", "75b9a6428993c35ea00f9b843624f750": "img/p02.jpg", "6ad9c5f614285693a074e839e5e630d1": "img/p03.jpg", "af158bfbf67945b1f3de7d1e64b57548": "img/p04.jpg", "4ba5eb4bfd7d34fc68a7cdf5bbb61ad2": "img/p05.jpg", "7a01bcbfe2020658253c9786939a654b": "img/p06.jpg", "7ee9b25dda09e5d1ce3458bfca7fa067": "img/p07.jpg", "78fd23febc4f236d4a4fde9758ff1584": "img/p08.jpg", "17f814902e2da07bfa45d60c242f23a5": "img/p09.jpg", "f04b1103ba6e9a10d5fc698e55d7e44d": "img/p10.jpg", "76b4de36505c675383be7a9ed6702524": "img/p11.jpg", "52fcdda059e900f48a7bdc1d6749cf5b": "img/p12.jpg", "537f6e7451852f9cb3c421d516ae6c98": "img/p13.jpg", "da8a9686165aa6e2b6d46b1d9fb46719": "img/p14.jpg", "f725d31d346ad3f2937e15e0e5c8508b": "img/p15.jpg", "3fc23269f033a643a953ab8f86f01c0a": "img/p16.jpg", "2aa58698a8e2c1f18665588c04f6a21e": "img/p17.jpg", "a5313033dd41d49545c9a3f708d1f84e": "img/p18.jpg", "1ae5c8f073ff759cac8ca9eac0841fdd": "img/p19.jpg", "4a41cdf311bd9bcc5b499c4784c3e322": "img/p20.jpg", "bf3493c2c3f383c374243bac5ba845cb": "img/p21.jpg", "319d9046a86fb2820e6860c19b8c63b6": "img/p22.jpg", "93c628d35a51ff2ff55b0bb7987d9490": "img/p23.jpg", "e016a0c2e5fb41ad306b24a0a9ee4679": "img/p24.jpg", "8f15e2051cc0b11da11fa8f49c7f86ed": "img/p25.jpg", "31f23b24abebb328cbe32acd6711d640": "img/p26.jpg", "0d5689f972154845923d797028517c7e": "img/p27.jpg", "3fabc92d346807a602d7adaebd0e0fb0": "img/p29.jpg", "5fa0e84909807091fd0d318cab43324a": "img/p30.jpg", "67d9be052ba2631b0afb108fbc7a11ac": "img/p31.jpg", "ec82d340bac32e60e05c9cdbc2dbad80": "img/p33.jpg", "84efcbd2f1570e2ecea2b0d08da5963d": "img/p34.jpg", "affeed4508f38a83507b48237c26d5b9": "img/p35.jpg", "74b0c6491a405d98cb770fd9ebabb268": "img/p36.jpg"};
+const IMG = {"878e1fb3885f10dccbb05e3a26b0ef9e": "img/anchor-gold.jpg", "89e062e1d2658f0f4becf029f5ecb8b0": "img/anchor-silver.jpg", "b18d78a079158eddd781a078cc48fd49": "img/bow-blue.jpg", "c67b3586aadd195c600d0065447d7380": "img/bow-maroon.jpg", "3d72dd2559c8b4d4682312bc4ea47cd4": "img/bow-pink.jpg", "45bc81e7148f61f363798bba1b90c784": "img/bow-teal.jpg", "bad09f43c3f3a140fbb46766f9ad4ec5": "img/btn-camellia-gold.jpg", "5632cbc42b1f6e6209a323cad6cf6941": "img/btn-crystal-camellia.jpg", "9ec5fa79f18c9cfc40eebf89452e6ba1": "img/btn-pearl-lattice.jpg", "e7d3a94d9ce861639f5ad37bd3071a01": "img/btn-pearl-swirl.jpg", "8b356e987ceb618a271942c758c7cd91": "img/btn-silver-ruffle.jpg", "c09814b13bca35a1a789cd52279a4b1e": "img/btn-smoky-crystal.jpg", "b1dddba0f6e0ffcf9494fb74c8bbbeb7": "img/chains-crown.jpg", "286f017eb6c1903dfdce40e2da61f32e": "img/chains-gentleman.jpg", "aa0d72205d98ae04299165f64a503455": "img/chains-tractor.jpg", "79f2ddcbf5ab74500a4a7d906fd7196d": "img/elephant-trio.jpg", "eda9578110e79815678390b0dc82200e": "img/lint-remover.jpg", "1797d687b3004b81f843bec6d0240aae": "img/lion-gold.jpg", "091486dc486879e609aff78c0d6eac2d": "img/lion-silver.jpg", "6ae7632ca589af4fb44890c4608fb88d": "img/lioncrest-silver.jpg", "c759cd960848e9e97c00168241403491": "img/logo-full.jpg", "9f1caf7685a0077b8d8e5d6256a504ea": "img/logo-mark.png", "13571e72127f47c050f3c034617fd94e": "img/lotus-elephant.jpg", "ae1e1710753cdd22ef9a26ed10b08b66": "img/pistols-antique.jpg", "969e00aafe7719a354def93363f0c41c": "img/pistols-silver.jpg", "8cef553d3e6dc579e0b9001adfa45086": "img/radha-krishna-2.jpg", "89241c3c878b10a970b2c8abacf73022": "img/radha-krishna.jpg", "1c5c146b99c32be556ccb918be8896ec": "img/reindeer-black.jpg", "143ed874193ded8f78b14278a5aabaab": "img/reindeer-gold.jpg", "ecbb3606ed629684a7434754915e81f6": "img/reindeer-silver.jpg", "3c5c77164f6909f84bd1490bf59d4b13": "img/sewing-black.jpg", "a0ffb297e69327ee978e3f630a0423f6": "img/sewing-ivory.jpg", "9d6dac8ea905bd070908d6c65f0b3d38": "img/sheriff.jpg", "dda2275247f9db3ae3966190fd7b2602": "img/specs.jpg", "1a609dd52bfda7decedec2f11c5e47dc": "img/tiger-gold.jpg", "51bdd1840fb652f56620d231f0657873": "img/tiger-silver.jpg", "aef44a89b21a731be2e647cd09b2d342": "img/umbrella-gold-2.jpg", "332981a0d34c221fc6364ea127ba7c79": "img/umbrella-gold-3.jpg", "c3fb1a0bdbdd0dc29648b178a38808f0": "img/umbrella-gold.jpg", "7b9d8028ffd6804feaddce3abe9a0ad3": "img/umbrella-silver.jpg"};
+const Cart = {
+  get() { try { return JSON.parse(localStorage.getItem('bb-cart')) || []; } catch (e) { return []; } },
+  set(v) { try { localStorage.setItem('bb-cart', JSON.stringify(v)); } catch (e) {} },
+  count() { return Cart.get().reduce((a, x) => a + x.qty, 0); },
+  add(item, q) {
+    const c = Cart.get(), x = c.find((y) => y.name === item.name);
+    if (x) x.qty += q; else c.push({ ...item, qty: q });
+    Cart.set(c);
+    return Cart.count();
+  }
+};
 let vals;
 class DCLogic {
   constructor(props) { this.props = props; this.state = {}; }
@@ -271,64 +288,66 @@ class DCLogic {
 
 const B = (id) => IMG[id];
 const HERO = [
-  { kicker: 'Brooches · Bow tie sets · Buttons', title: 'The details that finish the look', text: 'Finishing touches for sherwanis, suits and kurtas, shipped free across India.', cta: 'Shop now', cat: 'All', a: '75b9a6428993c35ea00f9b843624f750', b: 'ec82d340bac32e60e05c9cdbc2dbad80' },
-  { kicker: 'Heritage brooches', title: 'Statement brooches', text: 'Antique-finish crests, elephants and deities for the chest of a sherwani or bandhgala.', cta: 'Shop brooches', cat: 'Brooches', a: '7a01bcbfe2020658253c9786939a654b', b: 'b69d90fea44e726c74e952e57e3d03c3' },
-  { kicker: 'Gift-boxed sets', title: 'Bow tie sets', text: 'Bow tie, pocket square, cufflinks and lapel flower, matched in one box.', cta: 'Shop bow tie sets', cat: 'Bow tie sets', a: 'f725d31d346ad3f2937e15e0e5c8508b', b: 'da8a9686165aa6e2b6d46b1d9fb46719' },
-  { kicker: 'Buttons & closures', title: 'Finish your kurta', text: 'Crystal studs, zari frog closures and leather hooks.', cta: 'Shop buttons', cat: 'Buttons', a: '67d9be052ba2631b0afb108fbc7a11ac', b: '93c628d35a51ff2ff55b0bb7987d9490' },
-  { kicker: 'Lapel pins & collar bars', title: 'The smallest details', text: 'Pins and collar bars that make a plain suit your own.', cta: 'Shop lapel pins', cat: 'Lapel pins', a: '5fa0e84909807091fd0d318cab43324a', b: '74b0c6491a405d98cb770fd9ebabb268' }
+  { kicker: 'Brooches · Buttons · Lapel pins', title: 'The details that finish the look', text: 'Finishing touches for sherwanis, suits and kurtas, shipped free across India.', cta: 'Shop now', cat: 'All', a: 'c3fb1a0bdbdd0dc29648b178a38808f0', b: '1797d687b3004b81f843bec6d0240aae' },
+  { kicker: 'Statement brooches', title: 'Statement brooches', text: 'Lions, tigers, reindeer and heritage designs in antique gold and silver.', cta: 'Shop brooches', cat: 'Brooches', a: '1a609dd52bfda7decedec2f11c5e47dc', b: '143ed874193ded8f78b14278a5aabaab' },
+  { kicker: 'Brooch & button sets', title: 'Dress the sherwani', text: 'A statement brooch with buttons to match, made for sherwanis and bandhgalas.', cta: 'Shop sets', cat: 'Brooch & button sets', a: '7b9d8028ffd6804feaddce3abe9a0ad3', b: 'aef44a89b21a731be2e647cd09b2d342' },
+  { kicker: 'Buttons', title: 'Finish your kurta', text: 'Pearl, crystal and enamel buttons, boxed and ready to stitch on.', cta: 'Shop buttons', cat: 'Buttons', a: '9ec5fa79f18c9cfc40eebf89452e6ba1', b: '5632cbc42b1f6e6209a323cad6cf6941' },
+  { kicker: 'Gift-boxed sets', title: 'Tie & bow tie sets', text: 'Necktie, bow tie, lapel flower and cufflinks, matched in one box.', cta: 'Shop tie sets', cat: 'Tie & bow sets', a: 'b18d78a079158eddd781a078cc48fd49', b: 'c67b3586aadd195c600d0065447d7380' }
 ];
-const CATS = ['Brooches', 'Bow tie sets', 'Buttons', 'Lapel pins', 'Collar bars'];
-const TILE_IMG = { 'Brooches': 'b69d90fea44e726c74e952e57e3d03c3', 'Bow tie sets': '537f6e7451852f9cb3c421d516ae6c98', 'Buttons': 'ec82d340bac32e60e05c9cdbc2dbad80', 'Lapel pins': '5fa0e84909807091fd0d318cab43324a', 'Collar bars': '74b0c6491a405d98cb770fd9ebabb268' };
+const CATS = ['Brooches', 'Brooch & button sets', 'Buttons', 'Lapel pins', 'Collar chains', 'Tie & bow sets', 'Garment care'];
+const TILE_IMG = { 'Brooches': '1797d687b3004b81f843bec6d0240aae', 'Brooch & button sets': 'c3fb1a0bdbdd0dc29648b178a38808f0', 'Buttons': 'e7d3a94d9ce861639f5ad37bd3071a01', 'Lapel pins': '878e1fb3885f10dccbb05e3a26b0ef9e', 'Collar chains': '286f017eb6c1903dfdce40e2da61f32e', 'Tie & bow sets': '45bc81e7148f61f363798bba1b90c784', 'Garment care': 'eda9578110e79815678390b0dc82200e' };
 // New products go here: [category, name, uploaded photo id]. The first 8 also fill the Signature Edit.
 const CATALOG = [
-  ['Brooches', 'Ganesha brooch', 'b69d90fea44e726c74e952e57e3d03c3'],
-  ['Brooches', 'Royal crest brooch', '7a01bcbfe2020658253c9786939a654b'],
-  ['Brooches', 'Elephant brooch', 'af158bfbf67945b1f3de7d1e64b57548'],
-  ['Bow tie sets', 'Navy & teal check set', 'f725d31d346ad3f2937e15e0e5c8508b'],
-  ['Brooches', 'Heritage brooch set', '75b9a6428993c35ea00f9b843624f750'],
-  ['Buttons', 'Gold crystal buttons', '67d9be052ba2631b0afb108fbc7a11ac'],
-  ['Bow tie sets', 'Tan & red plaid set', 'da8a9686165aa6e2b6d46b1d9fb46719'],
-  ['Lapel pins', 'Lapel pin collection', '5fa0e84909807091fd0d318cab43324a'],
-  ['Brooches', 'Elephant drop brooch', '6ad9c5f614285693a074e839e5e630d1'],
-  ['Brooches', 'Filigree stone brooch', 'dea5cea75b90d640ef79684a31214f62'],
-  ['Brooches', 'Elephant medallion brooch', '4ba5eb4bfd7d34fc68a7cdf5bbb61ad2'],
-  ['Brooches', 'Lion crest brooch', '7ee9b25dda09e5d1ce3458bfca7fa067'],
-  ['Brooches', 'Crown crest brooch', '78fd23febc4f236d4a4fde9758ff1584'],
-  ['Brooches', 'Lotus elephant brooch', '17f814902e2da07bfa45d60c242f23a5'],
-  ['Brooches', 'Chain drop brooch', 'f04b1103ba6e9a10d5fc698e55d7e44d'],
-  ['Bow tie sets', 'Red & grey plaid set', '76b4de36505c675383be7a9ed6702524'],
-  ['Bow tie sets', 'Mustard & navy plaid set', '52fcdda059e900f48a7bdc1d6749cf5b'],
-  ['Bow tie sets', 'Purple check set', '537f6e7451852f9cb3c421d516ae6c98'],
-  ['Bow tie sets', 'Beige & grey plaid set', '3fc23269f033a643a953ab8f86f01c0a'],
-  ['Bow tie sets', 'Steel blue check set', '2aa58698a8e2c1f18665588c04f6a21e'],
-  ['Bow tie sets', 'Royal blue & grey set', 'a5313033dd41d49545c9a3f708d1f84e'],
-  ['Bow tie sets', 'Navy & lime plaid set', '1ae5c8f073ff759cac8ca9eac0841fdd'],
-  ['Bow tie sets', 'Brown & blush plaid set', '4a41cdf311bd9bcc5b499c4784c3e322'],
-  ['Bow tie sets', 'Slate blue check set', 'bf3493c2c3f383c374243bac5ba845cb'],
-  ['Bow tie sets', 'Teal plaid set', '319d9046a86fb2820e6860c19b8c63b6'],
-  ['Bow tie sets', 'Pink & grey plaid set', 'e016a0c2e5fb41ad306b24a0a9ee4679'],
-  ['Buttons', 'Zari frog closures', '93c628d35a51ff2ff55b0bb7987d9490'],
-  ['Buttons', 'Leather hook closures', '31f23b24abebb328cbe32acd6711d640'],
-  ['Buttons', 'Silver crystal buttons', 'ec82d340bac32e60e05c9cdbc2dbad80'],
-  ['Buttons', 'Chinese knot buttons', '0d5689f972154845923d797028517c7e'],
-  ['Buttons', 'Leather strap closures', '8f15e2051cc0b11da11fa8f49c7f86ed'],
-  ['Buttons', 'Rose pearl clasps', '84efcbd2f1570e2ecea2b0d08da5963d'],
-  ['Buttons', 'Silver bow buttons', 'affeed4508f38a83507b48237c26d5b9'],
-  ['Lapel pins', 'Novelty lapel pins', '3fabc92d346807a602d7adaebd0e0fb0'],
-  ['Collar bars', 'Collar bars', '74b0c6491a405d98cb770fd9ebabb268']
+  ['Brooches', 'Lion head brooch · antique gold', '1797d687b3004b81f843bec6d0240aae'],
+  ['Brooch & button sets', 'Royal umbrella set · antique gold', 'c3fb1a0bdbdd0dc29648b178a38808f0'],
+  ['Brooches', 'Tiger brooch · gold & crystal', '1a609dd52bfda7decedec2f11c5e47dc'],
+  ['Tie & bow sets', 'Blue plaid tie & bow set', 'b18d78a079158eddd781a078cc48fd49'],
+  ['Buttons', 'Pearl lattice buttons · gold', '9ec5fa79f18c9cfc40eebf89452e6ba1'],
+  ['Brooches', 'Reindeer brooch · gold & blue stone', '143ed874193ded8f78b14278a5aabaab'],
+  ['Lapel pins', 'Anchor lapel pin · gold', '878e1fb3885f10dccbb05e3a26b0ef9e'],
+  ['Collar chains', 'Crown & tassel collar chains', 'b1dddba0f6e0ffcf9494fb74c8bbbeb7'],
+  ['Brooches', 'Lion head brooch · antique silver', '091486dc486879e609aff78c0d6eac2d'],
+  ['Brooches', 'Tiger brooch · silver & crystal', '51bdd1840fb652f56620d231f0657873'],
+  ['Brooches', 'Reindeer brooch · silver', 'ecbb3606ed629684a7434754915e81f6'],
+  ['Brooches', 'Reindeer brooch · black & crystal', '1c5c146b99c32be556ccb918be8896ec'],
+  ['Brooches', 'Sewing machine brooch · ivory', 'a0ffb297e69327ee978e3f630a0423f6'],
+  ['Brooches', 'Sewing machine brooch · black & gold', '3c5c77164f6909f84bd1490bf59d4b13'],
+  ['Brooches', 'Sheriff star brooch', '9d6dac8ea905bd070908d6c65f0b3d38'],
+  ['Brooches', 'Elephant brooch · three finishes', '79f2ddcbf5ab74500a4a7d906fd7196d'],
+  ['Brooches', 'Lotus elephant brooch', '13571e72127f47c050f3c034617fd94e'],
+  ['Brooches', 'Radha Krishna brooch', '89241c3c878b10a970b2c8abacf73022'],
+  ['Brooch & button sets', 'Royal umbrella set · antique silver', '7b9d8028ffd6804feaddce3abe9a0ad3'],
+  ['Brooch & button sets', 'Lion crest set · antique silver', '6ae7632ca589af4fb44890c4608fb88d'],
+  ['Buttons', 'Camellia enamel buttons · gold', 'bad09f43c3f3a140fbb46766f9ad4ec5'],
+  ['Buttons', 'Smoky crystal buttons · gold', 'c09814b13bca35a1a789cd52279a4b1e'],
+  ['Buttons', 'Ruffle flower buttons · silver', '8b356e987ceb618a271942c758c7cd91'],
+  ['Buttons', 'Pearl swirl buttons · antique silver', 'e7d3a94d9ce861639f5ad37bd3071a01'],
+  ['Buttons', 'Crystal camellia buttons · black & silver', '5632cbc42b1f6e6209a323cad6cf6941'],
+  ['Lapel pins', 'Anchor lapel pin · antique silver', '89e062e1d2658f0f4becf029f5ecb8b0'],
+  ['Lapel pins', 'Crossed pistols pin · silver', '969e00aafe7719a354def93363f0c41c'],
+  ['Lapel pins', 'Crossed pistols pin · antique brass', 'ae1e1710753cdd22ef9a26ed10b08b66'],
+  ['Lapel pins', 'Spectacles lapel pin · black', 'dda2275247f9db3ae3966190fd7b2602'],
+  ['Collar chains', 'Gentleman & crest collar chains', '286f017eb6c1903dfdce40e2da61f32e'],
+  ['Collar chains', 'Tractor & sail collar chains', 'aa0d72205d98ae04299165f64a503455'],
+  ['Tie & bow sets', 'Teal plaid tie & bow set', '45bc81e7148f61f363798bba1b90c784'],
+  ['Tie & bow sets', 'Maroon plaid tie & bow set', 'c67b3586aadd195c600d0065447d7380'],
+  ['Tie & bow sets', 'Pink plaid tie & bow set', '3d72dd2559c8b4d4682312bc4ea47cd4'],
+  ['Garment care', 'Lint remover', 'eda9578110e79815678390b0dc82200e']
 ];
 const BLURBS = {
-  'Brooches': 'Antique-finish metal brooch.',
-  'Bow tie sets': 'Bow tie, pocket square, cufflinks and lapel flower in a gift box.',
-  'Buttons': 'Decorative buttons and closures.',
+  'Brooches': 'Statement brooch for a lapel, sherwani or bandhgala.',
+  'Brooch & button sets': 'A statement brooch with buttons to match.',
+  'Buttons': 'Decorative buttons for kurtas, sherwanis and blazers.',
   'Lapel pins': 'Small pins with big personality.',
-  'Collar bars': 'Keeps the collar sharp all day.'
+  'Collar chains': 'Pin-and-chain pieces for the lapel or collar.',
+  'Tie & bow sets': 'Necktie, bow tie, lapel flower and cufflinks in a gift box.',
+  'Garment care': 'Keeps suits and knits free of lint.'
 };
 const TRUST = [
   { icon: 'M3 7h11v9H3zM14 10h4l3 3v3h-7z', label: 'Free shipping across India' },
   { icon: 'M12 3a9 9 0 1 0 .01 0M12 7v5l3 2', label: 'Delivered in 3 days' },
   { icon: 'M4 12a8 8 0 1 1 3 6.2L4 20l1-3.5A8 8 0 0 1 4 12z', label: 'Order on WhatsApp' },
-  { icon: 'M4 10h16v10H4zM3 7h18v3H3zM12 7v13', label: 'Gift-boxed bow tie sets' },
+  { icon: 'M4 10h16v10H4zM3 7h18v3H3zM12 7v13', label: 'Gift-boxed tie sets' },
   { icon: 'M6 3h12l3 6-9 12L3 9zM3 9h18', label: 'Heritage detailing' }
 ];
 // Same timings as the reference site: banner slides 700ms every 3s and loops; category carousel 400ms ease.
@@ -337,7 +356,7 @@ const HERO_SPEED = 700, HERO_DELAY = 3000, CAT_DELAY = 3000;
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { cart: 0, cat: 'All', all: false, slide: 0, anim: true, ci: 0, cprev: 0 };
+    this.state = { cart: Cart.count(), cat: 'All', all: false, slide: 0, anim: true, ci: 0, cprev: 0 };
   }
   componentDidMount() {
     if ((this.props.autoplay ?? true) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -379,7 +398,6 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state;
     const gold = this.props.gold ?? '#D4AF37';
-    const add = () => this.setState({ cart: s.cart + 1 });
     const setCat = (cat) => () => this.setState({ cat, all: false });
     const N = HERO.length;
     const heroSlides = HERO.concat([HERO[0]]).map((h, i) => ({
@@ -393,8 +411,10 @@ class Component extends DCLogic {
       const on = i === s.slide % N;
       return { n: i + 1, current: on ? 'true' : 'false', pick: () => this.goSlide(i), style: 'display: block; width: ' + (on ? '22px' : '8px') + '; height: 8px; border-radius: 4px; background: ' + (on ? '#FFC263' : 'rgba(247,240,230,0.45)') + '; transition: width .3s ease, background .3s ease' };
     });
-    const items = CATALOG.map(([cat, name, id]) => ({ cat, name, src: B(id), price: 'Price on WhatsApp', blurb: BLURBS[cat], add }));
-    const off = (i, a) => ((i - a + CATS.length + 2) % CATS.length) - 2;
+    const items = CATALOG.map(([cat, name, id]) => ({ cat, name, src: B(id), price: '₹550', blurb: BLURBS[cat], add: () => this.setState({ cart: Cart.add({ cat, name, src: B(id) }, 1) }) }));
+    // Signed distance from the centred card, balanced so cards sit evenly left and right.
+    const H = Math.floor(CATS.length / 2);
+    const off = (i, a) => ((i - a + CATS.length + H) % CATS.length) - H;
     const tiles = CATS.map((label, i) => {
       const o = off(i, s.ci), was = off(i, s.cprev), d = Math.abs(o);
       const scale = d === 0 ? 1.1 : d === 1 ? 0.85 : 0.8;
@@ -421,9 +441,9 @@ class Component extends DCLogic {
       };
     });
     const outfits = [
-      { title: 'Kurta', cat: 'Buttons', text: 'Swap plain buttons for crystal studs or zari closures.', src: B('67d9be052ba2631b0afb108fbc7a11ac') },
-      { title: 'Suit', cat: 'Bow tie sets', text: 'Bow tie, pocket square, cufflinks and lapel flower, matched in one box.', src: B('f725d31d346ad3f2937e15e0e5c8508b') },
-      { title: 'Sherwani', cat: 'Brooches', text: 'One statement brooch on the chest is all a sherwani or bandhgala needs.', src: B('7a01bcbfe2020658253c9786939a654b') }
+      { title: 'Kurta', cat: 'Buttons', text: 'Swap plain buttons for pearl, crystal or enamel ones.', src: B('8b356e987ceb618a271942c758c7cd91') },
+      { title: 'Suit', cat: 'Lapel pins', text: 'One lapel pin makes a plain suit your own.', src: B('dda2275247f9db3ae3966190fd7b2602') },
+      { title: 'Sherwani', cat: 'Brooch & button sets', text: 'A statement brooch and matching buttons are all a sherwani needs.', src: B('332981a0d34c221fc6364ea127ba7c79') }
     ].map((o) => ({ ...o, pick: setCat(o.cat) }));
     const filtered = items.filter((p) => s.cat === 'All' || p.cat === s.cat);
     // "All" shows 8 until expanded; a category shows everything in it
@@ -444,7 +464,7 @@ class Component extends DCLogic {
       hasMore: collapsed && filtered.length > 8,
       total: filtered.length,
       showAll: () => this.setState({ all: true }),
-      insta: ['dea5cea75b90d640ef79684a31214f62', 'da8a9686165aa6e2b6d46b1d9fb46719', 'ec82d340bac32e60e05c9cdbc2dbad80', '7ee9b25dda09e5d1ce3458bfca7fa067', '4a41cdf311bd9bcc5b499c4784c3e322', '31f23b24abebb328cbe32acd6711d640'].map((id) => ({ src: B(id) }))
+      insta: ['3c5c77164f6909f84bd1490bf59d4b13', '1c5c146b99c32be556ccb918be8896ec', '8cef553d3e6dc579e0b9001adfa45086', '89e062e1d2658f0f4becf029f5ecb8b0', '51bdd1840fb652f56620d231f0657873', 'c09814b13bca35a1a789cd52279a4b1e'].map((id) => ({ src: B(id) }))
     };
   }
 }

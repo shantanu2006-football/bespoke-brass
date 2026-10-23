@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Product page · Bespoke Brass</title>
+<link rel="icon" href="img/logo-mark.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600;700;800&amp;family=Lato:wght@400;700&amp;display=swap" rel="stylesheet">
@@ -46,12 +47,15 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
   <header style="background: #030303; border-bottom: 1px solid #1E1E1E">
     <div style="max-width: 1320px; margin: 0 auto; padding: 16px 24px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px">
       <a href="index.html" style="text-decoration: none; font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; display: flex; align-items: center; gap: 6px; min-height: 44px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.8"><path d="M15 5l-7 7 7 7"></path></svg>Back to shop</a>
-      <a href="index.html" style="text-decoration: none; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 2px">
-        <span :style="`font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.22em; color: ${gold}`">BESPOKE</span>
-        <span style="font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.6em; color: #F7F0E6; padding-left: 0.6em">BRASS</span>
+      <a href="index.html" aria-label="Bespoke Brass, home" style="text-decoration: none; display: flex; align-items: center; gap: 12px">
+        <img src="img/logo-mark.png" alt="" style="width: 52px; height: 52px; display: block">
+        <span style="display: flex; flex-direction: column; align-items: center; gap: 2px">
+          <span :style="`font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 26px; letter-spacing: 0.22em; color: ${gold}`">BESPOKE</span>
+          <span style="font-family: 'Raleway', sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.6em; color: #F7F0E6; padding-left: 0.6em">BRASS</span>
+        </span>
       </a>
       <div style="display: flex; justify-content: flex-end">
-        <button :aria-label="`Cart, ${cartCount} items`" style="width: 44px; height: 44px; border: 0; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; position: relative"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span :style="`position: absolute; top: 4px; right: 2px; background: ${gold}; color: #141414; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center`">{{cartCount}}</span></button>
+        <a href="checkout.html" :aria-label="`Cart, ${cartCount} items`" style="width: 44px; height: 44px; text-decoration: none; display: flex; align-items: center; justify-content: center; position: relative"><svg aria-hidden="true" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#F7F0E6" stroke-width="1.6"><path d="M5 8h14l-1 13H6L5 8z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><span :style="`position: absolute; top: 4px; right: 2px; background: ${gold}; color: #141414; font-size: 11px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 9px; display: flex; align-items: center; justify-content: center`">{{cartCount}}</span></a>
       </div>
     </div>
   </header>
@@ -60,25 +64,25 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
     <div class="in-left" style="flex: 1 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 12px">
       <img :src="photoSrc" :alt="photoAlt" style="width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #141414; border: 1px solid #1E1E1E">
       <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px">
-        <template v-for="(t, idx) in thumbs">
+        <template v-for="(t, idx_) in thumbs">
           <button @click="t.pick" class="thumb" :aria-label="`Show ${t.label}`" :style="t.style"><img :src="t.src" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block"></button>
         </template>
       </div>
     </div>
 
     <div class="in-right" style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-      <p :style="`margin: 0; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}; font-weight: 700`">Bow tie sets · Gift box</p>
-      <h1 style="margin: 0; font-family: 'Raleway', sans-serif; font-size: 42px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">Plaid bow tie gift set</h1>
+      <p :style="`margin: 0; font-size: 12px; letter-spacing: 0.24em; text-transform: uppercase; color: ${gold}; font-weight: 700`">Tie &amp; bow sets · Gift box</p>
+      <h1 style="margin: 0; font-family: 'Raleway', sans-serif; font-size: 42px; line-height: 1.1; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase">Plaid tie &amp; bow tie set</h1>
       <div style="display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap">
-        <span style="font-size: 20px; font-weight: 700; color: #FFC263">Price on WhatsApp</span>
+        <span style="font-size: 26px; font-weight: 700; color: #FFC263">₹550</span>
         <span style="color: #B9B2A6; font-size: 13px">Inclusive of all taxes</span>
       </div>
-      <p style="margin: 0; color: #D9D2C6; font-size: 17px; line-height: 1.7">A matching bow tie, pocket square, pair of cufflinks and lapel flower, packed in a gift box.</p>
+      <p style="margin: 0; color: #D9D2C6; font-size: 17px; line-height: 1.7">A matching necktie, bow tie, lapel flower and pair of cufflinks, packed in a gift box. [Add material and occasion details.]</p>
 
       <div style="display: flex; flex-direction: column; gap: 10px">
         <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase">Colour: <span style="color: #FFC263">{{optionLabel}}</span></span>
         <div style="display: flex; gap: 10px; flex-wrap: wrap">
-          <template v-for="(o, idx) in options">
+          <template v-for="(o, idx_) in options">
             <button @click="o.pick" class="opt" :aria-pressed="o.selected" :style="o.style">{{o.label}}</button>
           </template>
         </div>
@@ -103,7 +107,7 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
       <div>
         <details open="" style="border-bottom: 1px solid #1E1E1E; padding: 18px 0">
           <summary style="font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; justify-content: space-between">Details <span aria-hidden="true">+</span></summary>
-          <p style="margin: 12px 0 0; color: #D9D2C6; line-height: 1.7">Includes bow tie, pocket square, 2 cufflinks and a lapel flower</p>
+          <p style="margin: 12px 0 0; color: #D9D2C6; line-height: 1.7">Includes necktie, bow tie, lapel flower and 2 cufflinks · [Material] · [Care instructions]</p>
         </details>
         <details style="border-bottom: 1px solid #1E1E1E; padding: 18px 0">
           <summary style="font-weight: 700; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; display: flex; justify-content: space-between">Shipping &amp; delivery <span aria-hidden="true">+</span></summary>
@@ -117,10 +121,10 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
     <div style="max-width: 1320px; margin: 0 auto; padding: 72px 24px">
       <h2 style="margin: 0 0 32px; font-family: 'Raleway', sans-serif; font-size: 30px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; text-align: center">You may also like</h2>
       <div class="stagger" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px">
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/p04.jpg" alt="Elephant brooch" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Elephant brooch</span><span style="color: #FFC263; font-weight: 700">Price on WhatsApp</span></span></a>
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/p31.jpg" alt="Gold crystal buttons" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Gold crystal buttons</span><span style="color: #FFC263; font-weight: 700">Price on WhatsApp</span></span></a>
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/p30.jpg" alt="Lapel pin collection" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Lapel pin collection</span><span style="color: #FFC263; font-weight: 700">Price on WhatsApp</span></span></a>
-        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/p36.jpg" alt="Collar bars" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Collar bars</span><span style="color: #FFC263; font-weight: 700">Price on WhatsApp</span></span></a>
+        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/lion-gold.jpg" alt="Lion head brooch" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Lion head brooch</span><span style="color: #FFC263; font-weight: 700">₹550</span></span></a>
+        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/btn-pearl-lattice.jpg" alt="Pearl lattice buttons" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Pearl lattice buttons</span><span style="color: #FFC263; font-weight: 700">₹550</span></span></a>
+        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/anchor-gold.jpg" alt="Anchor lapel pin" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Anchor lapel pin</span><span style="color: #FFC263; font-weight: 700">₹550</span></span></a>
+        <a href="product.html" class="rel" style="text-decoration: none; display: flex; flex-direction: column"><span style="aspect-ratio: 1 / 1; overflow: hidden; display: block"><img class="ph" src="img/chains-crown.jpg" alt="Crown and tassel collar chains" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block"></span><span style="padding: 16px; display: flex; flex-direction: column; gap: 4px"><span style="font-weight: 700">Crown &amp; tassel collar chains</span><span style="color: #FFC263; font-weight: 700">₹550</span></span></a>
       </div>
     </div>
   </section>
@@ -132,7 +136,18 @@ details[open] p{animation:fadeUp .45s cubic-bezier(.2,.7,.2,1)}
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.4.21/vue.global.prod.min.js"></script>
 <script>
-const IMG = {"dea5cea75b90d640ef79684a31214f62": "img/p00.jpg", "b69d90fea44e726c74e952e57e3d03c3": "img/p01.jpg", "75b9a6428993c35ea00f9b843624f750": "img/p02.jpg", "6ad9c5f614285693a074e839e5e630d1": "img/p03.jpg", "af158bfbf67945b1f3de7d1e64b57548": "img/p04.jpg", "4ba5eb4bfd7d34fc68a7cdf5bbb61ad2": "img/p05.jpg", "7a01bcbfe2020658253c9786939a654b": "img/p06.jpg", "7ee9b25dda09e5d1ce3458bfca7fa067": "img/p07.jpg", "78fd23febc4f236d4a4fde9758ff1584": "img/p08.jpg", "17f814902e2da07bfa45d60c242f23a5": "img/p09.jpg", "f04b1103ba6e9a10d5fc698e55d7e44d": "img/p10.jpg", "76b4de36505c675383be7a9ed6702524": "img/p11.jpg", "52fcdda059e900f48a7bdc1d6749cf5b": "img/p12.jpg", "537f6e7451852f9cb3c421d516ae6c98": "img/p13.jpg", "da8a9686165aa6e2b6d46b1d9fb46719": "img/p14.jpg", "f725d31d346ad3f2937e15e0e5c8508b": "img/p15.jpg", "3fc23269f033a643a953ab8f86f01c0a": "img/p16.jpg", "2aa58698a8e2c1f18665588c04f6a21e": "img/p17.jpg", "a5313033dd41d49545c9a3f708d1f84e": "img/p18.jpg", "1ae5c8f073ff759cac8ca9eac0841fdd": "img/p19.jpg", "4a41cdf311bd9bcc5b499c4784c3e322": "img/p20.jpg", "bf3493c2c3f383c374243bac5ba845cb": "img/p21.jpg", "319d9046a86fb2820e6860c19b8c63b6": "img/p22.jpg", "93c628d35a51ff2ff55b0bb7987d9490": "img/p23.jpg", "e016a0c2e5fb41ad306b24a0a9ee4679": "img/p24.jpg", "8f15e2051cc0b11da11fa8f49c7f86ed": "img/p25.jpg", "31f23b24abebb328cbe32acd6711d640": "img/p26.jpg", "0d5689f972154845923d797028517c7e": "img/p27.jpg", "3fabc92d346807a602d7adaebd0e0fb0": "img/p29.jpg", "5fa0e84909807091fd0d318cab43324a": "img/p30.jpg", "67d9be052ba2631b0afb108fbc7a11ac": "img/p31.jpg", "ec82d340bac32e60e05c9cdbc2dbad80": "img/p33.jpg", "84efcbd2f1570e2ecea2b0d08da5963d": "img/p34.jpg", "affeed4508f38a83507b48237c26d5b9": "img/p35.jpg", "74b0c6491a405d98cb770fd9ebabb268": "img/p36.jpg"};
+const IMG = {"878e1fb3885f10dccbb05e3a26b0ef9e": "img/anchor-gold.jpg", "89e062e1d2658f0f4becf029f5ecb8b0": "img/anchor-silver.jpg", "b18d78a079158eddd781a078cc48fd49": "img/bow-blue.jpg", "c67b3586aadd195c600d0065447d7380": "img/bow-maroon.jpg", "3d72dd2559c8b4d4682312bc4ea47cd4": "img/bow-pink.jpg", "45bc81e7148f61f363798bba1b90c784": "img/bow-teal.jpg", "bad09f43c3f3a140fbb46766f9ad4ec5": "img/btn-camellia-gold.jpg", "5632cbc42b1f6e6209a323cad6cf6941": "img/btn-crystal-camellia.jpg", "9ec5fa79f18c9cfc40eebf89452e6ba1": "img/btn-pearl-lattice.jpg", "e7d3a94d9ce861639f5ad37bd3071a01": "img/btn-pearl-swirl.jpg", "8b356e987ceb618a271942c758c7cd91": "img/btn-silver-ruffle.jpg", "c09814b13bca35a1a789cd52279a4b1e": "img/btn-smoky-crystal.jpg", "b1dddba0f6e0ffcf9494fb74c8bbbeb7": "img/chains-crown.jpg", "286f017eb6c1903dfdce40e2da61f32e": "img/chains-gentleman.jpg", "aa0d72205d98ae04299165f64a503455": "img/chains-tractor.jpg", "79f2ddcbf5ab74500a4a7d906fd7196d": "img/elephant-trio.jpg", "eda9578110e79815678390b0dc82200e": "img/lint-remover.jpg", "1797d687b3004b81f843bec6d0240aae": "img/lion-gold.jpg", "091486dc486879e609aff78c0d6eac2d": "img/lion-silver.jpg", "6ae7632ca589af4fb44890c4608fb88d": "img/lioncrest-silver.jpg", "c759cd960848e9e97c00168241403491": "img/logo-full.jpg", "9f1caf7685a0077b8d8e5d6256a504ea": "img/logo-mark.png", "13571e72127f47c050f3c034617fd94e": "img/lotus-elephant.jpg", "ae1e1710753cdd22ef9a26ed10b08b66": "img/pistols-antique.jpg", "969e00aafe7719a354def93363f0c41c": "img/pistols-silver.jpg", "8cef553d3e6dc579e0b9001adfa45086": "img/radha-krishna-2.jpg", "89241c3c878b10a970b2c8abacf73022": "img/radha-krishna.jpg", "1c5c146b99c32be556ccb918be8896ec": "img/reindeer-black.jpg", "143ed874193ded8f78b14278a5aabaab": "img/reindeer-gold.jpg", "ecbb3606ed629684a7434754915e81f6": "img/reindeer-silver.jpg", "3c5c77164f6909f84bd1490bf59d4b13": "img/sewing-black.jpg", "a0ffb297e69327ee978e3f630a0423f6": "img/sewing-ivory.jpg", "9d6dac8ea905bd070908d6c65f0b3d38": "img/sheriff.jpg", "dda2275247f9db3ae3966190fd7b2602": "img/specs.jpg", "1a609dd52bfda7decedec2f11c5e47dc": "img/tiger-gold.jpg", "51bdd1840fb652f56620d231f0657873": "img/tiger-silver.jpg", "aef44a89b21a731be2e647cd09b2d342": "img/umbrella-gold-2.jpg", "332981a0d34c221fc6364ea127ba7c79": "img/umbrella-gold-3.jpg", "c3fb1a0bdbdd0dc29648b178a38808f0": "img/umbrella-gold.jpg", "7b9d8028ffd6804feaddce3abe9a0ad3": "img/umbrella-silver.jpg"};
+const Cart = {
+  get() { try { return JSON.parse(localStorage.getItem('bb-cart')) || []; } catch (e) { return []; } },
+  set(v) { try { localStorage.setItem('bb-cart', JSON.stringify(v)); } catch (e) {} },
+  count() { return Cart.get().reduce((a, x) => a + x.qty, 0); },
+  add(item, q) {
+    const c = Cart.get(), x = c.find((y) => y.name === item.name);
+    if (x) x.qty += q; else c.push({ ...item, qty: q });
+    Cart.set(c);
+    return Cart.count();
+  }
+};
 let vals;
 class DCLogic {
   constructor(props) { this.props = props; this.state = {}; }
@@ -142,7 +157,7 @@ class DCLogic {
 class Component extends DCLogic {
   constructor(props) {
     super(props);
-    this.state = { photo: 0, qty: 1, cart: 0, added: false };
+    this.state = { photo: 0, qty: 1, cart: Cart.count(), added: false };
   }
   // Dawn's scroll-trigger: below-the-fold blocks fade up 2rem over 0.6s when they enter view.
   componentDidMount() {
@@ -165,10 +180,10 @@ class Component extends DCLogic {
   renderVals() {
     const s = this.state;
     const ways = [
-      { label: 'Tan & red', src: 'img/p14.jpg' },
-      { label: 'Navy & teal', src: 'img/p15.jpg' },
-      { label: 'Mustard & navy', src: 'img/p12.jpg' },
-      { label: 'Brown & blush', src: 'img/p20.jpg' }
+      { label: 'Blue', src: 'img/bow-blue.jpg' },
+      { label: 'Teal', src: 'img/bow-teal.jpg' },
+      { label: 'Maroon', src: 'img/bow-maroon.jpg' },
+      { label: 'Pink', src: 'img/bow-pink.jpg' }
     ];
     const pick = (i) => () => this.setState({ photo: i });
     const thumbs = ways.map((w, i) => ({
@@ -186,14 +201,14 @@ class Component extends DCLogic {
     return {
       gold: this.props.gold ?? '#D4AF37',
       photoSrc: ways[s.photo].src,
-      photoAlt: 'Plaid bow tie gift set in ' + ways[s.photo].label,
+      photoAlt: 'Plaid tie and bow tie set in ' + ways[s.photo].label,
       thumbs,
       options,
       optionLabel: ways[s.photo].label,
       qty: s.qty,
       inc: () => this.setState({ qty: s.qty + 1 }),
       dec: () => this.setState({ qty: Math.max(1, s.qty - 1) }),
-      add: () => this.setState({ cart: s.cart + s.qty, added: true }),
+      add: () => this.setState({ cart: Cart.add({ cat: 'Tie & bow sets', name: ways[s.photo].label + ' plaid tie & bow set', src: ways[s.photo].src }, s.qty), added: true }),
       addLabel: s.added ? 'Added to cart' : 'Add to cart',
       cartCount: s.cart
     };
