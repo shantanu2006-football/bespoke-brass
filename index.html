@@ -30,8 +30,8 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
 .nav-link{text-decoration:none}
 .icon-btn svg{transition:transform .2s ease}
 .icon-btn:hover svg{transform:scale(1.07)}
-.slide{flex:0 0 100%;height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);background:#1A1712}
-.slide-imgs{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.slide{flex:0 0 100%;height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);grid-template-rows:minmax(0,1fr);background:#1A1712}
+.slide-imgs{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);gap:3px}
 .slide-imgs img{width:100%;height:100%;object-fit:cover;display:block}
 @media (max-width: 760px){.slide{grid-template-columns:1fr;grid-template-rows:300px auto;height:640px}}
 @keyframes marquee-scroll{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
