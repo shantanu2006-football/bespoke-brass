@@ -99,16 +99,16 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
         <template v-if="isDetails">
           <form class="step-in" @submit="submitDetails" novalidate="" style="display: flex; flex-direction: column; gap: 18px">
             <h1 style="margin: 0; font-family: 'Raleway', sans-serif; font-size: 34px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase">Delivery details</h1>
-            <p style="margin: 0; color: #CFC8BC">We'll send your order updates on WhatsApp.</p>
+            <p style="margin: 0; color: #CFC8BC">We'll send your order updates on WhatsApp. Fields marked <span style="color: #FF5A4A">*</span> are required.</p>
             <div style="display: flex; flex-direction: column; gap: 6px">
-              <label for="co-name" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">Full name</label>
-              <input id="co-name" class="field" autocomplete="name" :value="f.name" @input="set.name" :aria-invalid="inv.name">
+              <label for="co-name" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">Full name<span aria-hidden="true" style="color: #FF5A4A"> *</span></label>
+              <input id="co-name" aria-required="true" class="field" autocomplete="name" :value="f.name" @input="set.name" :aria-invalid="inv.name">
               <template v-if="err.name"><span style="color: #FF8A7A; font-size: 14px">{{err.name}}</span></template>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px">
               <div style="display: flex; flex-direction: column; gap: 6px">
-                <label for="co-phone" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">WhatsApp number</label>
-                <input id="co-phone" class="field" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" :value="f.phone" @input="set.phone" :aria-invalid="inv.phone">
+                <label for="co-phone" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">WhatsApp number<span aria-hidden="true" style="color: #FF5A4A"> *</span></label>
+                <input id="co-phone" aria-required="true" class="field" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="10-digit mobile number" :value="f.phone" @input="set.phone" :aria-invalid="inv.phone">
                 <template v-if="err.phone"><span style="color: #FF8A7A; font-size: 14px">{{err.phone}}</span></template>
               </div>
               <div style="display: flex; flex-direction: column; gap: 6px">
@@ -117,24 +117,25 @@ a{color:#F7F0E6}a:hover{color:#FFC263}
               </div>
             </div>
             <div style="display: flex; flex-direction: column; gap: 6px">
-              <label for="co-address" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">Address</label>
-              <input id="co-address" class="field" autocomplete="street-address" placeholder="House no., building, street, area" :value="f.address" @input="set.address" :aria-invalid="inv.address">
+              <label for="co-address" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">Address<span aria-hidden="true" style="color: #FF5A4A"> *</span></label>
+              <input id="co-address" aria-required="true" class="field" autocomplete="street-address" placeholder="House no., building, street, area" :value="f.address" @input="set.address" :aria-invalid="inv.address">
               <template v-if="err.address"><span style="color: #FF8A7A; font-size: 14px">{{err.address}}</span></template>
             </div>
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 18px">
               <div style="display: flex; flex-direction: column; gap: 6px">
-                <label for="co-city" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">City</label>
-                <input id="co-city" class="field" autocomplete="address-level2" :value="f.city" @input="set.city" :aria-invalid="inv.city">
+                <label for="co-city" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">City<span aria-hidden="true" style="color: #FF5A4A"> *</span></label>
+                <input id="co-city" aria-required="true" list="co-cities" class="field" autocomplete="address-level2" :value="f.city" @input="set.city" :aria-invalid="inv.city">
+                <datalist id="co-cities"><template v-for="(c, idx_) in cities"><option :value="c"></option></template></datalist>
                 <template v-if="err.city"><span style="color: #FF8A7A; font-size: 14px">{{err.city}}</span></template>
               </div>
               <div style="display: flex; flex-direction: column; gap: 6px">
-                <label for="co-state" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">State</label>
-                <input id="co-state" class="field" autocomplete="address-level1" :value="f.state" @input="set.state" :aria-invalid="inv.state">
+                <label for="co-state" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">State<span aria-hidden="true" style="color: #FF5A4A"> *</span></label>
+                <input id="co-state" aria-required="true" class="field" autocomplete="address-level1" :value="f.state" @input="set.state" :aria-invalid="inv.state">
                 <template v-if="err.state"><span style="color: #FF8A7A; font-size: 14px">{{err.state}}</span></template>
               </div>
               <div style="display: flex; flex-direction: column; gap: 6px">
-                <label for="co-pin" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">PIN code</label>
-                <input id="co-pin" class="field" inputmode="numeric" autocomplete="postal-code" maxlength="6" :value="f.pin" @input="set.pin" :aria-invalid="inv.pin">
+                <label for="co-pin" style="font-size: 13px; font-weight: 700; letter-spacing: 0.08em">PIN code<span aria-hidden="true" style="color: #FF5A4A"> *</span></label>
+                <input id="co-pin" aria-required="true" class="field" inputmode="numeric" autocomplete="postal-code" maxlength="6" :value="f.pin" @input="set.pin" :aria-invalid="inv.pin">
                 <template v-if="err.pin"><span style="color: #FF8A7A; font-size: 14px">{{err.pin}}</span></template>
               </div>
             </div>
@@ -277,6 +278,35 @@ const WA = '917738678526';
 // Shipping is free from this order value up; below it a flat fee applies.
 const FREE_SHIP_FROM = 1000, SHIP_FEE = 100;
 // Payee from the client's own Google Pay QR (decoded and checked).
+// City -> state, so picking a known city fills the state. Unknown cities: state is typed by hand.
+const CITY_STATE = {}, CITIES = [];
+Object.entries({
+  'Maharashtra': 'Mumbai,Navi Mumbai,Thane,Pune,Nagpur,Nashik,Aurangabad,Chhatrapati Sambhajinagar,Solapur,Kolhapur,Amravati,Nanded,Sangli,Jalgaon,Akola,Latur,Ahmednagar,Kalyan,Vasai-Virar,Panvel,Lonavala,Satara,Ratnagiri,Alibag',
+  'Gujarat': 'Ahmedabad,Surat,Vadodara,Rajkot,Bhavnagar,Jamnagar,Gandhinagar,Junagadh,Anand,Navsari,Vapi,Bharuch,Morbi',
+  'Karnataka': 'Bengaluru,Bangalore,Mysuru,Mysore,Mangaluru,Mangalore,Hubballi,Hubli,Dharwad,Belagavi,Belgaum,Kalaburagi,Udupi,Shivamogga,Davanagere',
+  'Tamil Nadu': 'Chennai,Coimbatore,Madurai,Tiruchirappalli,Trichy,Salem,Tiruppur,Erode,Vellore,Tirunelveli,Thoothukudi,Hosur,Ooty',
+  'Kerala': 'Kochi,Cochin,Thiruvananthapuram,Trivandrum,Kozhikode,Calicut,Thrissur,Kollam,Kannur,Alappuzha,Kottayam,Palakkad',
+  'Telangana': 'Hyderabad,Secunderabad,Warangal,Karimnagar,Nizamabad,Khammam',
+  'Andhra Pradesh': 'Visakhapatnam,Vizag,Vijayawada,Guntur,Nellore,Tirupati,Kurnool,Rajahmundry,Kakinada,Anantapur',
+  'Delhi': 'Delhi,New Delhi',
+  'Haryana': 'Gurugram,Gurgaon,Faridabad,Panipat,Ambala,Karnal,Hisar,Rohtak,Sonipat,Panchkula',
+  'Uttar Pradesh': 'Noida,Greater Noida,Ghaziabad,Lucknow,Kanpur,Agra,Varanasi,Prayagraj,Allahabad,Meerut,Aligarh,Bareilly,Moradabad,Gorakhpur,Mathura,Jhansi,Ayodhya',
+  'Rajasthan': 'Jaipur,Jodhpur,Udaipur,Kota,Ajmer,Bikaner,Alwar,Bhilwara,Jaisalmer',
+  'Madhya Pradesh': 'Indore,Bhopal,Gwalior,Jabalpur,Ujjain,Sagar,Ratlam',
+  'Punjab': 'Ludhiana,Amritsar,Jalandhar,Patiala,Bathinda,Mohali',
+  'Chandigarh': 'Chandigarh',
+  'West Bengal': 'Kolkata,Howrah,Durgapur,Asansol,Siliguri,Darjeeling',
+  'Bihar': 'Patna,Gaya,Bhagalpur,Muzaffarpur,Darbhanga',
+  'Jharkhand': 'Ranchi,Jamshedpur,Dhanbad,Bokaro',
+  'Odisha': 'Bhubaneswar,Cuttack,Rourkela,Puri,Sambalpur',
+  'Chhattisgarh': 'Raipur,Bhilai,Bilaspur,Durg',
+  'Assam': 'Guwahati,Dibrugarh,Silchar,Jorhat',
+  'Uttarakhand': 'Dehradun,Haridwar,Rishikesh,Haldwani,Nainital,Roorkee',
+  'Himachal Pradesh': 'Shimla,Manali,Dharamshala,Solan,Mandi',
+  'Jammu and Kashmir': 'Srinagar,Jammu',
+  'Goa': 'Panaji,Panjim,Margao,Vasco da Gama,Mapusa',
+  'Puducherry': 'Puducherry,Pondicherry'
+}).forEach(([st, list]) => list.split(',').forEach((c) => { CITY_STATE[c.toLowerCase()] = st; CITIES.push(c); }));
 const UPI_ID = 'mitaansh13@okicici', UPI_NAME = 'Mitaansh Choudhari';
 const rupees = (n) => '₹' + n.toLocaleString('en-IN');
 
@@ -327,9 +357,15 @@ class Component extends DCLogic {
     Object.keys(s.f).forEach((k) => {
       set[k] = (e) => {
         const f = { ...this.state.f, [k]: e.target.value };
+        if (k === 'city') {
+          const st = CITY_STATE[f.city.trim().toLowerCase()];
+          // Only overwrite a state we filled ourselves, never one the customer typed.
+          if (st && (!f.state.trim() || f.state === this.autoState)) f.state = this.autoState = st;
+        }
         // Clear a field's error once it becomes valid.
         const err = { ...this.state.err };
-        if (err[k] && !this.validate(f)[k]) delete err[k];
+        const now = this.validate(f);
+        Object.keys(err).forEach((x) => { if (!now[x]) delete err[x]; });
         this.setState({ f, err });
       };
     });
@@ -401,6 +437,7 @@ class Component extends DCLogic {
       firstName: s.f.name.trim().split(' ')[0] || 'you',
       orderId,
       addressLine,
+      cities: CITIES,
       methodLine,
       doneNote: upi ? 'We will check your UPI payment and confirm on WhatsApp.' : 'We will confirm your order on WhatsApp before it ships.',
       upiLink,
